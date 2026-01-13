@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WERSI Drum Composer CX5 - User Manual</title>
+    
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+
+    <style>
+        /* Sidebar Layout for larger screens */
+        @media (min-width: 992px) {
+            body > main.container-fluid {
+                display: grid;
+                grid-template-columns: 300px 1fr;
+                gap: 2rem;
+                align-items: start;
+            }
+            
+            aside {
+                position: sticky;
+                top: 2rem;
+                max-height: calc(100vh - 4rem);
+                overflow-y: auto;
+                padding-right: 1rem;
+                border-right: 1px solid var(--pico-muted-border-color);
+            }
+        }
+
+        /* Active link styling */
+        nav li a.active {
+            color: var(--pico-primary);
+            font-weight: bold;
+            border-left: 3px solid var(--pico-primary);
+            padding-left: 0.5rem;
+        }
+
+        /* Table styling refinements */
+        table {
+            display: table;
+            width: 100%;
+        }
+        
+        /* Make sure images/tables don't overflow */
+        img, table {
+            max-width: 100%;
+        }
+        
+        /* Spacing for sections */
+        article > h3 {
+            margin-top: 2rem;
+            border-bottom: 1px solid var(--pico-muted-border-color);
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body x-data="{ currentTab: 'preface' }">
+
+    <header class="container">
+        <hgroup>
+            <h1>WERSI Drum Composer CX5</h1>
+            <p>User Manual</p>
+        </hgroup>
+    </header>
+
+    <main class="container-fluid">
+        <!-- Sidebar Navigation -->
+        <aside>
+            <nav>
+                <ul>
+                    <li><a href="#" @click.prevent="currentTab = 'preface'" :class="{ 'active': currentTab === 'preface' }">Preface</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'capabilities'" :class="{ 'active': currentTab === 'capabilities' }">Capabilities</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'preparations'" :class="{ 'active': currentTab === 'preparations' }">Preparations</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'basic'" :class="{ 'active': currentTab === 'basic' }">Basic Configuration</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'full'" :class="{ 'active': currentTab === 'full' }">Full Configuration</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'midi'" :class="{ 'active': currentTab === 'midi' }">MIDI</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'updates'" :class="{ 'active': currentTab === 'updates' }">New Software Features</a></li>
+                    <li><a href="#" @click.prevent="currentTab = 'afterword'" :class="{ 'active': currentTab === 'afterword' }">Afterword</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <section role="document">
+            
+            <!-- Preface -->
+            <article x-show="currentTab === 'preface'">
+                <h2>PREFACE</h2>
+                <p>This user manual is designed to help you learn about the many capabilities and applications of the WERSI Drum Composer CX 5. The many inscriptions on the control panel may initially confuse you, but don't worry: we will explain all the functions of your CX 5 in detail.</p>
+                <p>The first part of the manual covers the functions and possibilities of the basic configuration, while the second part introduces the additional capabilities and applications of the full configuration. Even if you purchased the CX 5 in the full configuration, you should first familiarize yourself with the basic version!</p>
+                <p>As you know, the capabilities of a computer system are determined by its software; this also applies to the CX 5. Please note that software changes may result in deviations from the functions described here. Now enjoy your WERSI Drum Composer CX 5!</p>
+            </article>
+
+            <!-- Capabilities -->
+            <article x-show="currentTab === 'capabilities'">
+                <h2>CAPABILITIES OF THE DRUM COMPOSER WERSIMATIC CX 5</h2>
+                <p>The following list includes the highest configuration level:</p>
+                
+                <h3>Rhythms and Storage</h3>
+                <ul>
+                    <li><strong>64 Rhythms</strong> (including 64 Intros + 64 Breaks) permanently programmed</li>
+                    <li><strong>32 Rhythms</strong> (including 32 Intros + 32 Breaks) freely programmable in RAM</li>
+                    <li><strong>32 Rhythms</strong> (including 32 Intros + 32 Breaks) stored on Cartridge (RAM)</li>
+                    <li><strong>Total of 128 rhythms</strong> immediately available</li>
+                </ul>
+                <p>Each of the 128 rhythms can be copied to any storage location in RAM or to the Cartridge, allowing you to create different Cartridges with various rhythms.</p>
+
+                <h3>Instruments and Sounds</h3>
+                <p><strong>26 digitally stored instruments and 1 analog instrument (Synthedrum) = 27 instruments:</strong></p>
+                <ol>
+                    <li>Bass drum, Disco</li>
+                    <li>Bass drum, Soft</li>
+                    <li>Snare drum, Soft</li>
+                    <li>Snare drum, Disco</li>
+                    <li>Hihat sticked</li>
+                    <li>Hihat open</li>
+                    <li>Conga high</li>
+                    <li>Conga low</li>
+                    <li>Tom Tom high</li>
+                    <li>Tom Tom low</li>
+                    <li>Cymbal Ride</li>
+                    <li>Cymbal Soft</li>
+                    <li>Crash Cymbal</li>
+                    <li>Rimshot</li>
+                    <li>Handclap</li>
+                    <li>Triller</li>
+                    <li>Woodblock</li>
+                    <li>Bass drum, Rock</li>
+                    <li>Cowbell high</li>
+                    <li>Cowbell low</li>
+                    <li>Maracas</li>
+                    <li>Brush</li>
+                    <li>Tambourine</li>
+                    <li>Hey</li>
+                    <li>Aha</li>
+                    <li>Timpani</li>
+                    <li>Synthedrum (analog)</li>
+                </ol>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>16 of the 27 instruments</strong> can be triggered manually (Manual Rhythm)</li>
+                    <li><strong>Sequencer</strong> (up to 16 sequences possible: 432 bars total)</li>
+                    <li><strong>Tempomat</strong> for fixed tempo settings</li>
+                    <li><strong>Pitch control</strong> for overall tuning of digital instruments</li>
+                    <li><strong>16-character alphanumeric display</strong> for speed display, rhythm names, and operator guidance</li>
+                    <li><strong>Programmable rhythm names</strong> for custom rhythms</li>
+                    <li><strong>Timpani</strong> playable over one octave from the control panel</li>
+                    <li><strong>Up to 8 Pads</strong> connectable via connection device</li>
+                    <li><strong>Pad presets</strong> - up to 8 different presets can be saved</li>
+                    <li><strong>Pads playable</strong> during running rhythm</li>
+                    <li><strong>Cassette interface</strong></li>
+                    <li><strong>8-channel studio output</strong></li>
+                    <li><strong>M.I.D.I. interface</strong></li>
+                    <li><strong>Sync to Tape</strong></li>
+                    <li><strong>Cartridge support</strong></li>
+                </ul>
+            </article>
+
+            <!-- Preparations -->
+            <article x-show="currentTab === 'preparations'">
+                <h2>PREPARATIONS</h2>
+                <p>Before you can get started, you must make the necessary connections and observe the following important safety measures.</p>
+
+                <h3>1. Power Connection</h3>
+                <p><strong>Check mains voltage:</strong> The specification on the voltage selector next to the mains input must match your household mains voltage!</p>
+                <p><strong>Establish mains connection:</strong> Insert the power cable into a properly installed Schuko socket.</p>
+                <p><strong>Note:</strong> The power transformer is short-circuit protected by a thermal fuse and therefore requires no primary mains fuse.</p>
+                <p>Observe VDE regulations! Always unplug the power cable before opening the device!</p>
+                <p>If you transport your CX 5 to different locations, follow this tip:</p>
+                <p><strong>Note for cold weather:</strong> Devices coming from cold environments fog up in warm rooms. This condensation is a normal physical process. Please wait for the device to dry before switching it on, as leakage currents could cause damage. First acclimatize, then play!</p>
+
+                <h3>2. Audio Connection</h3>
+                <p>The CX 5 has 2 audio connection options:</p>
+                <p><strong>Stereo Output:</strong> Via the stereo jack socket "Stereo-Output," a two-channel sum signal can be taken out. Connect your amplifier or active speaker here, or a high-impedance stereo headphone (greater than 800 ohms).</p>
+                <p><strong>8-Channel Output:</strong> For use with a mixing console, 8 separate channels are available via RCA connectors.</p>
+                <p>The 27 instruments of the CX 5 are distributed across the 8 channels:</p>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Channel</th>
+                                <th>Instruments</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Chan. 1</td><td>Bass Drums</td></tr>
+                            <tr><td>Chan. 2</td><td>Snares</td></tr>
+                            <tr><td>Chan. 3</td><td>Hi-Hats</td></tr>
+                            <tr><td>Chan. 4</td><td>Tom-Toms, Timpani</td></tr>
+                            <tr><td>Chan. 5</td><td>Cymbals</td></tr>
+                            <tr><td>Chan. 6</td><td>Bongos, Synthedrum</td></tr>
+                            <tr><td>Chan. 7</td><td>Tambourine, Brush, Thriller, Clap, "Hey," "Aha"</td></tr>
+                            <tr><td>Chan. 8</td><td>Cowbell, Crash Cymbal</td></tr>
+                        </tbody>
+                    </table>
+                </figure>
+            </article>
+
+            <!-- Basic Configuration -->
+            <article x-show="currentTab === 'basic'">
+                <h2>BASIC CONFIGURATION</h2>
+
+                <h3>Switching On</h3>
+                <p>Switch on the device using the power switch located on the back of the device. The LEDs in the control panel buttons blink as a "start check." The display shows: "DRUMCOMPOSER CX 5" (The basic version has no display).</p>
+                <p><strong>Note:</strong> Control panel buttons are numbered from top left = 1 to bottom right = 35.</p>
+
+                <h3>Selecting and Starting a Rhythm</h3>
+                <p>Press any rhythm selection button 15-22 or 27-34. The start check is interrupted. Only the LEDs of the activated rhythm selection button and button 6 "F - RH 1" (= Fixed Rhythm Group 1) light up; the LED of the "START/STOP" button (35) blinks.</p>
+                <p>The display shows the rhythm name. Start the rhythm by pressing the "START/STOP" button (35). The symbol "▶" lights up on the right side of the display. The display shows the speed on the left in beats per minute (20-233 bpm).</p>
+                <p>The speed can be changed with the "Speed" slider. Use the "Volume" slider to set the desired volume. The "START/STOP" button blinks at the beginning of each measure (Down-Beat Indicator).</p>
+
+                <h3>Changing Rhythms</h3>
+                <p>To change the rhythm, simply press one of the buttons 15-22 or 27-34. The new rhythm name appears in the display.</p>
+
+                <h3>Selector</h3>
+                <p>The "Selector" button (Button 4) selects the rhythm group whose rhythms are assigned to the lower inscriptions of the rhythm selection buttons. You can access 32 rhythms of permanently installed Group 1 "F-RH 1" or 32 rhythms of Group 2 "F-RH 2" (Button 6).</p>
+                <p>The Selector allows you to choose between 2 rhythms per rhythm selection button, offering variations of the printed rhythms.</p>
+
+                <h3>Reset Function</h3>
+                <p>Pressing the red reset switch on the back causes the CX 5 to end its current function and return to the initial state. Use this if you make an operating error.</p>
+
+                <h3>Tempomat</h3>
+                <p>The CX 5 offers a standard tempo (ideal tempo) for each rhythm. Press "Tempomat" (Button 9) to activate it (LED lights up). Each rhythm will be played at a fixed tempo, and the "Speed" slider becomes non-functional.</p>
+                <p>Press "Tempomat" again (LED goes out) to adjust tempo with the "Speed" slider. For custom rhythms, you can set your ideal tempo as desired.</p>
+
+                <h3>Start/Stop/Intro/Break</h3>
+                <p>Each programmed rhythm consists of two differently composed measures that repeat alternately. The "Down-Beat Indicator" signals the first beat of each measure.</p>
+                <p>"Start/Stop" always starts on the "one" of the first measure. Each programmed rhythm includes an Intro (introduction) and a Break (solo). Tap the "Intro/Break" button (23) briefly to trigger the intro, then the normal rhythm follows.</p>
+                <p><strong>During running rhythm:</strong></p>
+                <ul>
+                    <li><strong>Brief tap</strong> (less than 0.1 sec.): Solo at the next measure start</li>
+                    <li><strong>Long press:</strong> Solo immediately</li>
+                </ul>
+
+                <h3>Pitch</h3>
+                <p>For all rhythms, you can change the programmed tuning:</p>
+                <ol>
+                    <li>Start the desired rhythm</li>
+                    <li>Activate "Pitch" button (8) (LED lights up)</li>
+                    <li>Use the "Speed" slider for tuning adjustment</li>
+                    <li>Press "Pitch" again (LED goes out)</li>
+                </ol>
+                <p>The new tuning applies to all selected rhythms. Press the slider to the middle position to restore normal tuning. The CX 5 automatically switches to normal tuning when powered off.</p>
+
+                <h3>Snare Roll</h3>
+                <p>The "Snare Roll" function (Button 14) allows you to trigger a drum roll during a running rhythm.</p>
+
+                <h3>Sound Effects</h3>
+                <p>The CX 5 in full configuration offers 6 sound effects:</p>
+                <p><strong>Group 1:</strong></p>
+                <ul>
+                    <li>Crash Cymbal</li>
+                    <li>Thriller</li>
+                    <li>Clap</li>
+                </ul>
+                <p><strong>Group 2:</strong></p>
+                <ul>
+                    <li>Hey</li>
+                    <li>Aha</li>
+                    <li>Synthe Drum</li>
+                </ul>
+                <p>Switch between groups with the "Effect Sel." button (12).</p>
+
+                <h3>Manual Rhythm</h3>
+                <p>The CX 5 allows you to trigger 16 instruments directly by hand (Manual Rhythm):</p>
+                <p>Press "Man. Rh." (Button 13) (LED lights up). The rhythm selection buttons 15-22, 27-34 now function as instrument selection buttons.</p>
+                <p>Press "Man. Rh." again (LED goes out) to switch off Manual Rhythm. You can also start the previously selected rhythm directly with "START/STOP" without switching off "Man. Rh."</p>
+            </article>
+
+            <!-- Full Configuration -->
+            <article x-show="currentTab === 'full'">
+                <h2>FULL CONFIGURATION</h2>
+                
+                <h3>1. Timpani Mode</h3>
+                <p>The CX 5 allows you to play 13 kettledrums tuned in half-tone steps:</p>
+                <ol>
+                    <li>Press "2nd Function" (Button 3) (LED blinks)</li>
+                    <li>Press "Timpani" (Button 1)</li>
+                    <li>The display shows "Timpani Mode on"</li>
+                    <li>Play kettledrums using buttons 15-31</li>
+                    <li>Press "2nd Function" again to exit</li>
+                </ol>
+
+                <h3>2. Programming Rhythms</h3>
+                <p>You can program up to 32 custom rhythms into free storage locations and modify them as needed. First, place the included control panel mask on the device.</p>
+                
+                <h4>2.1 Selecting Storage Location</h4>
+                <p>Press any button 15-22 or 27-34 (16 locations). Using "Selector" gives you a second location per button (total of 32).</p>
+                <p>Press "Program" (Button 1) twice (LED on). The display shows "BEATS TIMES".</p>
+
+                <h4>2.2 Entering Time Signature</h4>
+                <p>Press "Erase" (Button 4) (LED lights up). Buttons 15-22 now have values 1 to 8.</p>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li><strong>3/4 time:</strong> Press Buttons 17 and 18</li>
+                    <li><strong>4/4 time:</strong> Press Button 18 twice</li>
+                    <li><strong>6/8 time:</strong> Press Button 20 (6 beats) then Button 16 (2 steps)</li>
+                    <li><strong>5/4 time:</strong> Press Button 19 (5 beats) then Button 17 (3 steps for triplet feel)</li>
+                </ul>
+                <p>The display shows the time signature. Press "Pgm/Lev" (Button 14) (LED on) to activate Program mode. Start the CX 5 to hear a metronome at the set time signature.</p>
+
+                <h4>2.3 Playing in Instruments</h4>
+                <p>Instruments are divided into three groups:</p>
+                <ul>
+                    <li><strong>Group 1:</strong> Activate "I. Gr. 1" (LED on)</li>
+                    <li><strong>Group 2:</strong> Activate "I. Gr. 2" (LED on)</li>
+                    <li><strong>Group 3:</strong> Both off</li>
+                </ul>
+                <p>Select the instrument group and play the rhythm with the instrument selection buttons. The display counts measures, beats, and steps.</p>
+                <p>To delete incorrectly placed instruments, press "Erase" then the instrument button. When done, delete the metronome by pressing "Erase" and "Rimshot".</p>
+
+                <h4>2.4 Programming Volume</h4>
+                <p>After placing instruments, you can program individual volume levels:</p>
+                <p>Press "Pgm/Lev" (14) to turn it off; display shows "LEVELS". Press "I. Gr. 1" to adjust Group 1 volumes (7 levels). "I. Gr. 2" adjusts Group 2. Press "Program" (1) to exit.</p>
+
+                <h4>2.5 Entering Intro/Break</h4>
+                <ol>
+                    <li>Call up the rhythm</li>
+                    <li>Press "Program" twice</li>
+                    <li>Press "Pgm/Lev" (14) and "Intro/Break" (LED on)</li>
+                    <li>Press "START/STOP"—program runs</li>
+                    <li>First measure for Intro, second for Break</li>
+                    <li>Press "Program" again to save</li>
+                </ol>
+
+                <h4>2.6 Programming Standard Tempo</h4>
+                <ol>
+                    <li>Call up the rhythm</li>
+                    <li>Start the rhythm</li>
+                    <li>Set tempo with "Speed" slider</li>
+                    <li>Press "Program" once</li>
+                </ol>
+                <p>The tempo is saved and accessible via the "Tempomat" button.</p>
+
+                <h4>2.7 Pitch</h4>
+                <p>See Basic Configuration, "Pitch" section.</p>
+
+                <h4>2.8 Editing Rhythm Names</h4>
+                <ol>
+                    <li>Select the rhythm</li>
+                    <li>Press "2nd Function" (3) (LED blinks)</li>
+                    <li>Press "Edit" (Button 2)</li>
+                    <li>Use buttons as a typewriter (1-22: alphabet, 28-33: numbers)</li>
+                    <li>Give your rhythm a 6-character name</li>
+                    <li>Press Button 35 (START/STOP) to save</li>
+                </ol>
+
+                <h3>3. Programming Sequences</h3>
+                <p>Create up to 16 sequences from custom rhythms (max 432 measures):</p>
+                <ol>
+                    <li>Select storage location</li>
+                    <li>Press "Sequencer" (LED on)</li>
+                    <li>Press "Program" twice—display shows "Bar 0"</li>
+                    <li>Call up first rhythm and start it</li>
+                    <li>Press "Sequencer" for each measure length (1×=1 measure, 2×=2 measures, etc.)</li>
+                    <li>Select rhythms sequentially and press "Sequencer" for each</li>
+                </ol>
+                <p>To incorporate Breaks, additionally activate "Break" button. For pauses, select "STOP" and press "Sequencer".</p>
+                <p><strong>Ending sequence recording:</strong></p>
+                <ul>
+                    <li>Press "Program" while running: Endless loop</li>
+                    <li>Press "STOP" then "Program": Play once</li>
+                </ul>
+                <p><strong>Selecting sequences:</strong></p>
+                <ol>
+                    <li>Activate storage location</li>
+                    <li>Press "Sequencer"</li>
+                    <li>Press "START"</li>
+                </ol>
+
+                <h3>4. Rhythms in the Cartridge</h3>
+                <p>Insert the RAM Cartridge into the cartridge slot on the back to save and retrieve rhythms.</p>
+
+                <h4>4.1 Write Cartridge (Wr. Cart.)</h4>
+                <p>Save all custom rhythms, intros, breaks, tempomat settings, sequences, and pad presets:</p>
+                <ol>
+                    <li>Press "2nd Funct." (3)</li>
+                    <li>Press "Wr. Cart." (13)</li>
+                </ol>
+
+                <h4>4.2 Read Cartridge (Rd. Cart.)</h4>
+                <p>Load cartridge contents into free storage:</p>
+                <ol>
+                    <li>Press "2nd Funct."</li>
+                    <li>Press "Rd. Cart." (14)</li>
+                </ol>
+
+                <h4>4.3 Playing from Cartridge</h4>
+                <p><strong>Rhythms:</strong></p>
+                <ol>
+                    <li>Press "Cart" (6)</li>
+                    <li>Select rhythm</li>
+                    <li>Press "Start/Stop" (35)</li>
+                </ol>
+                <p><strong>Sequences:</strong></p>
+                <ol>
+                    <li>Press "Cart" (6)</li>
+                    <li>Press "Sequencer" (10)</li>
+                    <li>Select sequence</li>
+                    <li>Press "Start/Stop"</li>
+                </ol>
+
+                <h3>5. Copying Rhythms</h3>
+                
+                <h4>5.1 Within Programmable Rhythms</h4>
+                <ol>
+                    <li>Call up rhythm to copy</li>
+                    <li>Press "Program" once—display shows "Copy/Prg Rhythm"</li>
+                    <li>Select destination location</li>
+                </ol>
+
+                <h4>5.2 Using "Copier" Function</h4>
+                <p>Copy fixed rhythms to free locations:</p>
+                <ol>
+                    <li>Call up rhythm to copy (from F. RH 1 or F. RH 2)</li>
+                    <li>Press "2nd Funct."</li>
+                    <li>Press "Copier"—display shows "Copy Rhythms"</li>
+                    <li>Select destination location</li>
+                </ol>
+
+                <h3>6. Drum Pads CX 5</h3>
+                <p>Drum Pads are electronic alternatives to traditional percussion—compact, lightweight, and versatile.</p>
+
+                <h4>6.1 Accessories Needed</h4>
+                <ul>
+                    <li>CX 5 in full configuration</li>
+                    <li>Pad Connection Kit (interface for up to 8 pads)</li>
+                    <li>One bass pad and up to 7 universal pads</li>
+                    <li>Connection cables (mono jack-to-jack)</li>
+                    <li>Stands for pads and foot machine for bass pad</li>
+                </ul>
+                <p><strong>Connecting:</strong> Switch off CX 5 first! Connect Pad Connection Kit to the Pad Interface on back, then connect pads with cables.</p>
+
+                <h4>6.2 Activating Pad Mode</h4>
+                <ol>
+                    <li>Switch on CX 5</li>
+                    <li>Activate any button 15-22 or 27-34</li>
+                    <li>Activate "Pad on" (11)—LED lights up</li>
+                </ol>
+                <p>The display shows "P" on the right with "1" indicating Pad Preset 1. LEDs in buttons 27-34 act as a VU meter showing strike volume.</p>
+                <p><strong>Note:</strong> After first activation, pads have random tuning. Program proper tuning using section 6.8.</p>
+
+                <h4>6.3 Pads During Running Rhythm</h4>
+                <ol>
+                    <li>Select Pad Preset 1</li>
+                    <li>Choose a rhythm and start it</li>
+                </ol>
+                <p>To reduce pad volume by 24 dB against the running rhythm, press "Program" (1). A "-" minus sign appears in the display.</p>
+
+                <h4>6.4 Special Pad Mode</h4>
+                <p>In the normal pad mode, occasional dropout of tom sounds can occur on common stands. This doesn't happen in special pad mode. Press "2nd Function" in Pad Mode to switch modes.</p>
+
+                <h4>6.5 Deactivating Pad Mode</h4>
+                <p>Press "Pad on" (LED blinks), then press again (LED goes out).</p>
+
+                <h4>6.6 Assigning Instruments to Pad Presets</h4>
+                <p>Besides Preset 1, the CX 5 offers 7 other presets for 63 total rhythm instruments:</p>
+                <ol>
+                    <li>Press "Pad/Midi" (2) (LED blinks)—in Pad/Midi Program Mode</li>
+                    <li>Press "Effect Sel." (12)—in Pad Assignment Mode</li>
+                    <li>Display shows "Which Preset ???"</li>
+                    <li>Buttons 15-22 are preset selectors (1-8)</li>
+                    <li>Select a preset, then assign instruments to pads</li>
+                    <li>Use "START/STOP" (35) and "Intro/Break" (23) to cycle through 63 instruments</li>
+                    <li>Assign instruments to pads using buttons 15-22</li>
+                    <li>Press "Pad/Midi" to exit (LED out)</li>
+                </ol>
+                <p><strong>Instrument Groups (can't play simultaneously):</strong></p>
+                <ul>
+                    <li>Group 1: Bass drums (Soft, Disco, Rock)</li>
+                    <li>Group 2: Snares (Soft, Rock, Hi-hat open)</li>
+                    <li>Group 3: Hi-hat Sticked, Maracas</li>
+                    <li>Group 4: Tom (high, low), Timpani</li>
+                    <li>Group 5: Cymbals (Ride, Soft)</li>
+                    <li>Group 6: Bongo (high, low), Rimshot</li>
+                    <li>Group 7: Hey, Aha, Tambourine, Triller, Handclaps</li>
+                    <li>Group 8: Cowbell (low, high), Woodblock, Crash Cymbal</li>
+                </ul>
+
+                <h4>6.7 Selecting Pad Preset</h4>
+                <ol>
+                    <li>Press "Pad on" (11)—displays current preset</li>
+                    <li>For specific preset, press "Pad on" again (LED blinks)</li>
+                    <li>Activate preset with button 15-22</li>
+                </ol>
+
+                <h4>6.8 Programming Pitch Preset</h4>
+                <ol>
+                    <li>Press "Pitch" (8)</li>
+                    <li>Set tuning with "Speed" slider</li>
+                    <li>Press "Pad/Midi" (2)</li>
+                    <li>LED in "Pitch" goes out</li>
+                </ol>
+                <p>The preset's tuning is saved.</p>
+                <p><strong>Caution:</strong> Only use Pitch function for programming tuning, then switch back to normal mode.</p>
+
+                <h3>7. Data Transfer via Cassette Recorder</h3>
+                <p>Save custom rhythms to standard cassette for backup:</p>
+                <p><strong>Connection:</strong> Connect cassette recorder to the 5-pin tape socket on the back of CX 5.</p>
+
+                <h4>7.1 Cassette Save</h4>
+                <p>Duplicate rhythms from free storage to cassette:</p>
+                <ol>
+                    <li>Prepare recorder for recording (don't start yet)</li>
+                    <li>Press "2nd Funct." (3) (LED blinks)</li>
+                    <li>Press "C. Save" (26)</li>
+                    <li>Set recorder output to 100%</li>
+                    <li>Prepare and start recorder</li>
+                    <li>Press "2nd Funct." and "C. Save" at CX 5</li>
+                </ol>
+                <p>After transfer, CX 5 returns to normal operation. Stop recorder.</p>
+                <p><strong>Tip:</strong> Don't economize on tape quality. Record all programs twice in succession. Perform Cassette Check after each transfer.</p>
+
+                <h4>7.2 Cassette Check</h4>
+                <p>Verify recorded data:</p>
+                <ol>
+                    <li>Rewind cassette to program start</li>
+                    <li>Press "2nd Funct." (LED blinks)</li>
+                    <li>Press "C. Check" (25)</li>
+                    <li>Start recorder</li>
+                </ol>
+                <p>If errors occur (messages "2" or "8"), likely causes are incorrect recorder output level or tape defects. Repeat transfer with new cassette if needed.</p>
+
+                <h4>7.3 Cassette Load</h4>
+                <p>Load cassette programs into CX 5:</p>
+                <ol>
+                    <li>Press "2nd Funct." (3)</li>
+                    <li>Press "C. Load" (24)</li>
+                    <li>Start recorder (normal operation, not recording)</li>
+                    <li>Display shows "Tape RX"</li>
+                    <li>Data loads into CX 5</li>
+                </ol>
+                <p>When complete, display shows "Rec Stop E 00" (00 = no errors).</p>
+                <p><strong>Summary:</strong> Archive custom rhythms via cassette or cartridge.</p>
+
+                <h3>8. Sync to Tape / Sync from Tape</h3>
+                <p>Synchronize CX 5 with multi-track tape machines for professional recording.</p>
+                <p><strong>Sync to Tape:</strong> CX 5 sends tempo control signal to one tape track, leaving 15 tracks for other instruments.</p>
+                <p><strong>Sync from Tape:</strong> Tape machine controls CX 5 tempo automatically.</p>
+
+                <h4>8.1 Sync to Tape</h4>
+                <p><strong>Transfer control signal to tape machine:</strong></p>
+                <ol>
+                    <li>Connect CX 5 ("Sync to Tape" socket) to multi-track machine</li>
+                    <li>Select rhythm/sequence and set desired tempo</li>
+                    <li>Press "Pad/Midi" (2) once (LED blinks)</li>
+                    <li>Press "2nd Funct." until "TX SYNC TO TAPE" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)—display shows "MSYST"</li>
+                    <li>Adjust speed with "Speed" slider—display shows tempo (e.g., "108 ST")</li>
+                    <li>Start tape machine</li>
+                    <li>Start CX 5 with "START/STOP"</li>
+                </ol>
+                <p>Synchronization signals now transfer to the tape. You can change speed during transmission. When transfer is complete:</p>
+                <ol>
+                    <li>Press "START/STOP" (35)</li>
+                    <li>Stop tape machine</li>
+                </ol>
+
+                <h4>8.2 Sync from Tape</h4>
+                <p>Rewind tape and establish connection (Tape machine → CX 5 via "Sync from Tape" socket):</p>
+                <ol>
+                    <li>Press "Pad/Midi" (2) once</li>
+                    <li>Press "2nd Funct." until "RX SYN FROM TAPE" appears</li>
+                    <li>Press "Pad/Midi" once</li>
+                    <li>Display shows "TSY"</li>
+                    <li>Start tape machine (normal operation, not recording)</li>
+                </ol>
+                <p>The sync signal from tape automatically starts the CX 5.</p>
+                <p><strong>Checking Software Version:</strong></p>
+                <ol>
+                    <li>Press and hold any rhythm button 15-21</li>
+                    <li>Press reset switch briefly</li>
+                    <li>Display shows 3-digit software version with release date</li>
+                    <li>Release rhythm button</li>
+                </ol>
+            </article>
+
+            <!-- MIDI -->
+            <article x-show="currentTab === 'midi'">
+                <h2>9. M.I.D.I.</h2>
+                <p>M.I.D.I. (Musical Instrument Digital Interface) is a standard interface for data exchange between digital keyboards, rhythm machines, and computers.</p>
+                <p>Two five-pin DIN sockets: "Midi-in" and "Midi-out". Use standard audio cables (max 15 meters).</p>
+
+                <h3>9.1 Synchronizing Rhythm Machines</h3>
+                <p>Couple different rhythm machines using MIDI Clock signal.</p>
+                <p><strong>Setup:</strong></p>
+                <pre><code>CX 5 (Device A)     →  CX 5 (Device B)
+Midi Out              Midi In
+(Clock Sender)        (Clock Receiver)</code></pre>
+
+                <h4>9.1.2 Device "A" - CX 5 as MIDI Clock Sender</h4>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED blinks)</li>
+                    <li>Press "2nd Function" until "TRANSM SYNC MIDI" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+                <p>Display shows "SM" (MIDI Synchronization).</p>
+
+                <h4>9.1.3 Device "B" - CX 5 as MIDI Clock Receiver</h4>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED blinks)</li>
+                    <li>Press "2nd Function" until "REC SYNC MIDI" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+                <p>Display shows "MSY". Speed slider is now non-functional. Device "A" now controls Device "B"'s speed.</p>
+
+                <h3>9.2 Coupling CX 5 and Computer</h3>
+                <p><strong>Required:</strong></p>
+                <ul>
+                    <li>Computer (e.g., Commodore 64)</li>
+                    <li>Wersi MIDI Interface (Art. No. 201143)</li>
+                    <li>Wersi Multi-Track 16 Sequencer (Art. No. 202016)</li>
+                </ul>
+
+                <h4>9.2.1 Synchronization</h4>
+                <p>Computer/organ/keyboard controls CX 5 speed, keeping it synchronized with multi-track programs.</p>
+
+                <h4>9.2.2 Computer Synchronizes CX 5</h4>
+                <ol>
+                    <li>Connect Computer "Midi-out" to CX 5 "Midi-in"</li>
+                    <li>Switch computer to MIDI Clock (e.g., press "M" in Multi-Track)</li>
+                    <li>Activate CX 5 as "MIDI Clock Receiver" (see 9.1.3)</li>
+                </ol>
+                <p>Computer now controls CX 5 speed.</p>
+
+                <h3>9.3 Computer Controls CX 5 and Instruments</h3>
+                <p>Play ready-made rhythms into multi-track program:</p>
+                <ol>
+                    <li>Connect Computer "Midi-out" to CX 5 "Midi-in"</li>
+                    <li>Connect Computer "Midi-in" to CX 5 "Midi-out"</li>
+                    <li>Switch computer to MIDI Clock</li>
+                    <li>Activate CX 5:
+                        <ul>
+                            <li>Press "Pad/Midi" once (LED blinks)</li>
+                            <li>Press "2nd Function" 3 times</li>
+                            <li>Display shows "SM + TR Instr. Midi"</li>
+                            <li>Press "Pad/Midi" once (LED out)</li>
+                        </ul>
+                    </li>
+                    <li>Call up desired rhythm/sequence on CX 5</li>
+                    <li>Set sequence length in multi-track</li>
+                    <li>Set one track to recording</li>
+                    <li>Start computer with Return</li>
+                </ol>
+                <p>CX 5 starts and sends instruments to computer.</p>
+
+                <h3>9.4 Recording Percussion into Multi-Track</h3>
+                <p>Record percussion instruments via pads directly into multi-track.</p>
+
+                <h4>9.4.1 MIDI Codes for Percussion</h4>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr><th>Code</th><th>Instrument</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>36</td><td>Bass drum 1</td></tr>
+                            <tr><td>37</td><td>Rimshot</td></tr>
+                            <tr><td>38</td><td>Snare Rock</td></tr>
+                            <tr><td>39</td><td>Claps</td></tr>
+                            <tr><td>40</td><td>Snare Soft</td></tr>
+                            <tr><td>41</td><td>Tom Low</td></tr>
+                            <tr><td>...</td><td>...</td></tr>
+                            <tr><td>63</td><td>Hey</td></tr>
+                            <tr><td>64</td><td>Aha</td></tr>
+                        </tbody>
+                    </table>
+                </figure>
+
+                <h4>9.4.2 Activating "MIDI Instrument Transmission"</h4>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED blinks)</li>
+                    <li>Press "2nd Function" until "TRANS INSTR MIDI" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+                <p>Display shows "T" (Transmit).</p>
+
+                <h4>9.4.3 Activating "MIDI Instrument Reception"</h4>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED blinks)</li>
+                    <li>Press "2nd Function" until "REC INSTR MIDI" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+                <p>Display shows "R" (Rec).</p>
+
+                <h4>9.4.4 Activating Both Transmission and Reception</h4>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED on)</li>
+                    <li>Press "2nd Function" until "TR + REC INST MIDI" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+                <p>Display shows "RT" (both). Now MIDI works on all 16 channels independently.</p>
+
+                <h4>9.4.5 Setting Transmission and Reception Channels</h4>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED blinks)</li>
+                    <li>Press "Progr." until "MIDI RX CHAN" appears</li>
+                    <li>Set desired channel with buttons 15-22, 27-34</li>
+                    <li>Press "Progr." until "MIDI TX CHAN" appears</li>
+                    <li>Set transmission channel with buttons 15-22, 27-34</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+
+                <h4>9.4.6 Example Setup</h4>
+                <ol>
+                    <li>Connect pads as usual</li>
+                    <li>Connect CX 5 "Midi out" to Computer "Midi in"</li>
+                    <li>Connect CX 5 "Midi in" to Computer "Midi out"</li>
+                    <li>Activate CX 5 MIDI Trans. and Rec. (see 9.4.4)</li>
+                    <li>Set both channels to Channel 1 (see 9.4.5)</li>
+                    <li>Prepare multi-track for recording and start</li>
+                    <li>Play live on pads into multi-track</li>
+                    <li>Finished recording plays back directly</li>
+                </ol>
+
+                <h3>9.5 Coupling CX 5 with MIDI Keyboard</h3>
+                <p>Control CX 5 instruments using a MIDI keyboard:</p>
+                <ol>
+                    <li>Connect CX 5 "Midi in" to Keyboard "Midi out"</li>
+                    <li>Activate CX 5 for "MIDI Instrument Reception" (see 9.4.3)</li>
+                    <li>Activate keyboard for "MIDI Instrument Transmission"</li>
+                    <li>Set CX 5 "MIDI RX Chan" to keyboard's transmission channel (see 9.4.5)</li>
+                </ol>
+                <p>Now play CX 5 percussion instruments from keyboard starting at C' in half-tone steps.</p>
+                <p><strong>Further MIDI Information:</strong><br>
+                MIDI COMPENDIUM by Design of Music & Computer-Systems<br>
+                Order No. ISBN 3-925 020-00-4<br>
+                by Dipl. Ing. Siegfried Philipp<br>
+                Verlag Kapehl & Philipp, Wiesbaden</p>
+
+                <h3>9.6 MIDI Through</h3>
+                <p>Received MIDI drum triggers activate CX 5 instruments and are sent back via MIDI:</p>
+                <ol>
+                    <li>Press "Pad/Midi" once (LED blinks)</li>
+                    <li>Press "2nd Function" until "MIDI THROUGH" appears</li>
+                    <li>Press "Pad/Midi" once (LED out)</li>
+                </ol>
+                <p>Display shows "TU" (MIDI Through).</p>
+                <p>If needed, record additional tracks with other instruments:</p>
+                <ol>
+                    <li>Prepare new recording track</li>
+                    <li>Set same MIDI channel as first track</li>
+                    <li>Select desired pad preset</li>
+                    <li>Begin recording</li>
+                </ol>
+                <p><strong>Caution:</strong> CX 5 can play maximum 8 instruments at once. After that, instruments drop out.</p>
+
+                <h3>9.7 External Control via MIDI</h3>
+                <p>Control rhythm and intro/break buttons from an external organ/keyboard:</p>
+                <p>Requirement: Control instrument has appropriate MIDI software.</p>
+                <ul>
+                    <li>CX 5 must be in "REC. SYNC. MIDI" mode (see 9.1.3)</li>
+                    <li>Set Channel 15 as receive channel</li>
+                    <li>CX 5 receives button numbers 0-31 transmitted with Program Change Code</li>
+                    <li>Numbers 0-15 select rhythms 1-16</li>
+                    <li>Numbers 16-31 activate "Selector" and select rhythms 17-32</li>
+                </ul>
+
+                <h3>Summary: CX 5 + MIDI</h3>
+                <p><strong>Available MIDI Channels:</strong><br>
+                MIDI Sender and Receiver can be independently programmed to MIDI Channels 1-16, allowing independent transmission and reception.</p>
+                <p><strong>MIDI Operating Modes:</strong></p>
+                <ul>
+                    <li><strong>a) Receiving Instrument Codes:</strong> Receives instrument codes (note numbers), triggers corresponding percussion instruments with 8 volume levels.</li>
+                    <li><strong>b) Sending Instrument Codes:</strong> Sends note numbers and velocity codes based on triggered percussion.</li>
+                    <li><strong>c) Receiving and Sending:</strong> Both simultaneous.</li>
+                    <li><strong>d) MIDI Through:</strong> Received codes trigger instruments and are sent back.</li>
+                    <li><strong>e) Receiving MIDI Realtime Clock:</strong> Receives clock signals (1/96) to control rhythm speed. Interprets Start and Stop codes. Channel 15 controls rhythm selection buttons.</li>
+                    <li><strong>f) Sending MIDI Realtime Clock:</strong> Sends clock signals (1/96), Start, and Stop codes.</li>
+                </ul>
+            </article>
+
+            <!-- New Features -->
+            <article x-show="currentTab === 'updates'">
+                <h2>New Software Features!</h2>
+                
+                <h3>CX 5 Software Version V 2.0</h3>
+                <p>Connect a double foot switch to the 15-pin "Pad Interface" socket on the back to control "Start/Stop" and "Intro/Break" functions without pads.</p>
+
+                <h3>CX 5 Software Version V 2.2</h3>
+                <p><strong>New Features:</strong></p>
+                <ol>
+                    <li><strong>Pad Assignment:</strong> Press lower rhythm buttons to listen to assigned pad instruments.</li>
+                    <li><strong>Break Ending:</strong> Press "2nd Function" during running rhythm for a break at next measure start, then stops.</li>
+                    <li><strong>Special Pad Mode:</strong> Press "2nd Function" in Pad Mode. CX 5 becomes pure pad machine. Select presets with rhythm buttons 1-8. Exit with "Pad On".</li>
+                </ol>
+            </article>
+
+            <!-- Afterword -->
+            <article x-show="currentTab === 'afterword'">
+                <h2>AFTERWORD</h2>
+                <p>On the preceding pages, you have learned about the many capabilities and applications of the WERSI CX 5.</p>
+                <p>Some content may have initially seemed confusing—this is natural with such a versatile instrument.</p>
+                <p>Fully mastering the CX 5, programming it purposefully, and handling routine settings with ease will take time.</p>
+                <p>However, we are certain that it is enjoyable to increasingly master your WERSI Drum Composer CX 5, and we wish you many years of pleasure with it.</p>
+                <p>We reserve the right to make changes serving technical progress. Reproduction, even in part, is only permitted after consultation with us.</p>
+                <hr>
+                <footer>
+                    <p><strong>Wersi-electronic GmbH & Co. KG</strong><br>
+                    Industriestraße<br>
+                    5401 Halsenbach<br>
+                    Tel.: 06747/1230<br>
+                    Telex: 04 2323</p>
+                    <p><strong>End of Manual</strong></p>
+                </footer>
+            </article>
+
+        </section>
+    </main>
+
+</body>
+</html>
