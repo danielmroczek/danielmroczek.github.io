@@ -13,6 +13,27 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
 
     <style>
+        /* Top-left corner logo (fills the empty gap on wide layouts) */
+        .wersi-corner-logo {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            width: 3rem;
+            height: 3rem;
+            z-index: 100;
+            display: block;
+            background-color: var(--pico-contrast);
+            -webkit-mask: url("favicon.svg") no-repeat center / contain;
+            mask: url("favicon.svg") no-repeat center / contain;
+        }
+
+        /* Only show it where the gap exists (desktop sidebar layout) */
+        @media (max-width: 991px) {
+            .wersi-corner-logo {
+                display: none;
+            }
+        }
+
         /* Sidebar Layout for larger screens */
         @media (min-width: 992px) {
             body > main.container-fluid {
@@ -50,6 +71,11 @@
         img, table {
             max-width: 100%;
         }
+
+        /* Invert PNGs when dark mode is active to keep contrast */
+        :root[data-theme="dark"] img[src$=".png"] {
+            filter: invert(1) hue-rotate(180deg);
+        }
         
         /* Spacing for sections */
         article > h3 {
@@ -60,6 +86,8 @@
     </style>
 </head>
 <body x-data="{ currentTab: 'preface' }">
+
+    <a class="wersi-corner-logo" href="./" aria-label="WERSI manual home"></a>
 
     <header class="container">
         <hgroup>
@@ -90,6 +118,11 @@
             
             <!-- Preface -->
             <article x-show="currentTab === 'preface'">
+
+                <figure>
+                    <img src="logo.png" alt="WERSI Logo">
+                </figure>
+
                 <h2>PREFACE</h2>
                 <p>This user manual is designed to help you learn about the many capabilities and applications of the WERSI Drum Composer CX 5. The many inscriptions on the control panel may initially confuse you, but don't worry: we will explain all the functions of your CX 5 in detail.</p>
                 <p>The first part of the manual covers the functions and possibilities of the basic configuration, while the second part introduces the additional capabilities and applications of the full configuration. Even if you purchased the CX 5 in the full configuration, you should first familiarize yourself with the basic version!</p>
