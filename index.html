@@ -2,108 +2,222 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <title>Daniel Mroczek's portfolio</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-      defer
-    ></script>
     <style>
-      .card-img-top {
-        object-fit: cover;
-        height: 10em; /* Set the desired height of the card image */
-        position: relative;
-      }
-      
-      .card {
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-      }
-      
-      .card:hover {
-        transform: scale(1.03);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      /* ---- Theme: accent color (Bootstrap blue #0d6efd) ---- */
+
+      /* Light (default) */
+      :root {
+        --pico-primary: #0d6efd;
+        --pico-primary-background: #0d6efd;
+        --pico-primary-border: #0d6efd;
+        --pico-primary-hover: #0b5ed7;
+        --pico-primary-hover-background: #0b5ed7;
+        --pico-primary-hover-border: #0b5ed7;
+        --pico-primary-underline: rgba(13, 110, 253, 0.5);
+        --pico-primary-inverse: #fff;
+        /* default text color (captured at :root, not link-colored) */
+        --project-text: var(--pico-color);
       }
 
-      .github-link {
-        color: white;
-        font-size: 1.5rem;
-        opacity: 0.9;
-        transition: all 0.2s ease-in-out;
+      /* Dark (auto via prefers-color-scheme, no explicit data-theme) */
+      @media only screen and (prefers-color-scheme: dark) {
+        :root:not([data-theme]) {
+          --pico-primary: #6ea8fe;
+          --pico-primary-background: #0d6efd;
+          --pico-primary-border: #0d6efd;
+          --pico-primary-hover: #9ec5fe;
+          --pico-primary-hover-background: #0b5ed7;
+          --pico-primary-hover-border: #0b5ed7;
+          --pico-primary-underline: rgba(110, 168, 254, 0.5);
+          --pico-primary-inverse: #fff;
+          /* default text color (dark scheme) */
+          --project-text: var(--pico-color);
+        }
       }
-      .github-link:hover {
-        opacity: 1;
-        color: white;
-        transform: scale(1.1);
+
+      /* ---- Layout only (no component styling) ---- */
+
+      /* Centered viewport container (shared by main and footer) */
+      main,
+      footer {
+        max-width: 60rem;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
       }
-      .github-link:active {
-        transform: scale(0.95);
+
+      /* Sticky header */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--pico-background-color);
+        border-bottom: 1px solid var(--pico-muted-border-color);
+      }
+
+      header nav {
+        max-width: 60rem;
+        margin-inline: auto;
+        padding: 0.5rem 1.5rem;
+      }
+
+      /* Fluid project grid (2->3 columns, no media queries) */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+      }
+
+      /* Equal-height cards */
+      article {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 0;
+        padding-top: 0;
+        overflow: hidden;
+      }
+
+      article p {
+        flex: 1;
+      }
+
+      /* Full-width image with overlaid title */
+      .thumb {
+        position: relative;
+        margin: 0 calc(-1 * var(--pico-block-spacing-horizontal));
+        height: 10em;
+        overflow: hidden;
+        border-radius: var(--pico-border-radius) var(--pico-border-radius) 0 0;
+      }
+
+      .thumb img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .thumb h3 {
+        position: absolute;
+        inset: auto 0 0 0;
+        margin: 0;
+        padding: 1.5rem 1rem 0.5rem;
+        color: #fff;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0)
+        );
+      }
+
+      /* Whole-card link + hover */
+      .project-link {
+        text-decoration: none;
+      }
+
+      /* Keep card content as plain text, not link-colored.
+         The <a> carries --pico-color: primary in this scope, so reset it
+         to the scheme's default text color captured at :root. */
+      .project-link article {
+        --pico-color: var(--project-text);
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+      }
+
+      .project-link:hover article {
+        transform: scale(1.03);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
     </style>
   </head>
-  <body data-bs-theme="dark">
-    <header class="navbar bg-primary mb-3">
-      <div class="container">
-        <h1>Daniel Mroczek: portfolio</h1>
-        <a href="https://github.com/danielmroczek" class="github-link" target="_blank">
-          <i class="bi bi-github"></i>
+  <body>
+    <header>
+      <nav>
+        <h1 style="margin: 0">Daniel Mroczek: portfolio</h1>
+        <a href="https://github.com/danielmroczek" aria-label="GitHub profile" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+            />
+          </svg>
         </a>
-      </div>
+      </nav>
     </header>
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-lg-4 mb-3">
-          <a href="drumpad/" class="card text-decoration-none">
-            <img class="card-img-top object-fit-cover" src="img/drumpad.jpg" alt="Interactive drumpad interface with square pads" />
-            <h3 class="card-header card-title">Drumpad</h3>
-            <p class="card-body card-text">An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.</p>
-          </a>
-        </div>
-        <div class="col-6 col-lg-4 mb-3">
-          <a href="gps-viewer/" class="card text-decoration-none">
-            <img class="card-img-top object-fit-cover" src="img/gps-viewer.jpg" alt="Map interface showing GPS tracking visualization" />
-            <h3 class="card-header card-title">GPS Viewer</h3>
-            <p class="card-body card-text">A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.</p>
-          </a>
-        </div>
-        <div class="col-6 col-lg-4 mb-3">
-          <a href="nearest-mountpoint/" class="card text-decoration-none">
-            <img class="card-img-top object-fit-cover" src="img/nearest-mountpoint.jpg" alt="Map showing NTRIP mount points in the ASG-EUPOS network" />
-            <h3 class="card-header card-title">Nearest Mount Point Finder</h3>
-            <p class="card-body card-text">Find the nearest NTRIP mount point in the ASG-EUPOS network</p>
-          </a>
-        </div>
-        <div class="col-6 col-lg-4 mb-3">
-          <a href="reaction-time/" class="card text-decoration-none">
-            <img class="card-img-top object-fit-cover" src="img/reaction-time.jpg" alt="Reaction time test interface with results display" />
-            <h3 class="card-header card-title">Reaction Time Test</h3>
-            <p class="card-body card-text">A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.</p>
-          </a>
-        </div>
-        <div class="col-6 col-lg-4 mb-3">
-          <a href="blind-test/" class="card text-decoration-none">
-            <img class="card-img-top object-fit-cover" src="img/blind-test.jpg" alt="Blind test application interface for product testing" />
-            <h3 class="card-header card-title">Blind Test</h3>
-            <p class="card-body card-text">A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.</p>
-          </a>
-        </div>
-        <div class="col-6 col-lg-4 mb-3">
-          <a href="color-matcher/" class="card text-decoration-none">
-            <img class="card-img-top object-fit-cover" src="img/color-matcher.jpg" alt="Color matching tool showing color swatches and palettes" />
-            <h3 class="card-header card-title">Color Matcher</h3>
-            <p class="card-body card-text">A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.</p>
-          </a>
-        </div>
+
+    <main>
+      <section class="projects">
+        <a class="project-link" href="drumpad/">
+          <article>
+            <div class="thumb">
+              <img src="img/drumpad.jpg" alt="Interactive drumpad interface with square pads" />
+              <h3>Drumpad</h3>
+            </div>
+            <p>An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.</p>
+          </article>
+        </a>
+
+        <a class="project-link" href="gps-viewer/">
+          <article>
+            <div class="thumb">
+              <img src="img/gps-viewer.jpg" alt="Map interface showing GPS tracking visualization" />
+              <h3>GPS Viewer</h3>
+            </div>
+            <p>A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.</p>
+          </article>
+        </a>
+
+        <a class="project-link" href="nearest-mountpoint/">
+          <article>
+            <div class="thumb">
+              <img src="img/nearest-mountpoint.jpg" alt="Map showing NTRIP mount points in the ASG-EUPOS network" />
+              <h3>Nearest Mount Point Finder</h3>
+            </div>
+            <p>Find the nearest NTRIP mount point in the ASG-EUPOS network</p>
+          </article>
+        </a>
+
+        <a class="project-link" href="reaction-time/">
+          <article>
+            <div class="thumb">
+              <img src="img/reaction-time.jpg" alt="Reaction time test interface with results display" />
+              <h3>Reaction Time Test</h3>
+            </div>
+            <p>A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.</p>
+          </article>
+        </a>
+
+        <a class="project-link" href="blind-test/">
+          <article>
+            <div class="thumb">
+              <img src="img/blind-test.jpg" alt="Blind test application interface for product testing" />
+              <h3>Blind Test</h3>
+            </div>
+            <p>A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.</p>
+          </article>
+        </a>
+
+        <a class="project-link" href="color-matcher/">
+          <article>
+            <div class="thumb">
+              <img src="img/color-matcher.jpg" alt="Color matching tool showing color swatches and palettes" />
+              <h3>Color Matcher</h3>
+            </div>
+            <p>A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.</p>
+          </article>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <p>© 2026 Daniel Mroczek</p>
       </div>
-    </div>
+    </footer>
   </body>
 </html>

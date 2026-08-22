@@ -10,6 +10,11 @@ Website is available here: [Daniel Mroczek's Portfolio](https://danielmroczek.gi
 
 This website serves as my personal portfolio, showcasing my work and projects.
 
+The single-page site is built with [Pico.css 2](https://picocss.com) (loaded from CDN) on a minimalist,
+class-light semantic HTML structure. The color scheme follows the user's system preference automatically
+(light/dark via `prefers-color-scheme`), and the accent color is customized through `--pico-primary-*`
+variables. All extra styles are layout-only (grid, spacing, card hover); no component styles are overridden.
+
 ## Setup
 
 To run this website locally:
