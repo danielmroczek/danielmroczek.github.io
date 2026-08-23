@@ -1,5 +1,7 @@
 /* Load Pico.css (CDN) into its own cascade layer */
 @import url("https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css") layer(pico);
+/* Font Awesome Brands — GitHub icon via ::before (no inline SVG) */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css") layer(pico);
 
 /* Custom layers — declared after "pico" so later layers win */
 @layer base, components;
@@ -17,6 +19,19 @@
     z-index: 10;
     background: var(--pico-background-color);
     border-bottom: 1px solid var(--pico-muted-border-color);
+  }
+
+  /* GitHub brand icon — rendered via Font Awesome ::before (no inline SVG) */
+  nav a[aria-label="GitHub profile"] {
+    display: inline-flex;
+    align-items: center;
+    font-family: "Font Awesome 6 Brands";
+    font-size: 1.5rem;
+    text-decoration: none;
+
+    &::before {
+      content: "\f09b"; /* fa-github */
+    }
   }
 }
 
