@@ -6,6 +6,13 @@
     <meta name="color-scheme" content="light dark" />
     <title>Daniel Mroczek's portfolio</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "alpinejs": "https://cdn.jsdelivr.net/npm/alpinejs@3.16.2/dist/module.esm.js"
+        }
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -21,72 +28,28 @@
       </nav>
     </header>
 
-    <main class="container">
-      <section class="grid">
-        <a class="project-link" href="drumpad/">
-          <article>
-            <div class="thumb">
-              <img src="img/drumpad.jpg" alt="Interactive drumpad interface with square pads" />
-              <h3>Drumpad</h3>
-            </div>
-            <p>An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.</p>
-          </article>
-        </a>
+    <main class="container" x-data="projects">
+      <p x-show="loading" x-cloak>Loading…</p>
 
-        <a class="project-link" href="gps-viewer/">
-          <article>
-            <div class="thumb">
-              <img src="img/gps-viewer.jpg" alt="Map interface showing GPS tracking visualization" />
-              <h3>GPS Viewer</h3>
-            </div>
-            <p>A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.</p>
-          </article>
-        </a>
-
-        <a class="project-link" href="nearest-mountpoint/">
-          <article>
-            <div class="thumb">
-              <img src="img/nearest-mountpoint.jpg" alt="Map showing NTRIP mount points in the ASG-EUPOS network" />
-              <h3>Nearest Mount Point Finder</h3>
-            </div>
-            <p>Find the nearest NTRIP mount point in the ASG-EUPOS network</p>
-          </article>
-        </a>
-
-        <a class="project-link" href="reaction-time/">
-          <article>
-            <div class="thumb">
-              <img src="img/reaction-time.jpg" alt="Reaction time test interface with results display" />
-              <h3>Reaction Time Test</h3>
-            </div>
-            <p>A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.</p>
-          </article>
-        </a>
-
-        <a class="project-link" href="blind-test/">
-          <article>
-            <div class="thumb">
-              <img src="img/blind-test.jpg" alt="Blind test application interface for product testing" />
-              <h3>Blind Test</h3>
-            </div>
-            <p>A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.</p>
-          </article>
-        </a>
-
-        <a class="project-link" href="color-matcher/">
-          <article>
-            <div class="thumb">
-              <img src="img/color-matcher.jpg" alt="Color matching tool showing color swatches and palettes" />
-              <h3>Color Matcher</h3>
-            </div>
-            <p>A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.</p>
-          </article>
-        </a>
+      <section class="grid" x-show="!loading" x-cloak>
+        <template x-for="project in filteredProjects" :key="project.href">
+          <a class="project-link" :href="project.href">
+            <article>
+              <div class="thumb">
+                <img :src="project.image" :alt="project.imageAlt" />
+                <h3 x-text="project.title"></h3>
+              </div>
+              <p x-text="project.description"></p>
+            </article>
+          </a>
+        </template>
       </section>
     </main>
 
     <footer class="container">
       <p>© 2026 Daniel Mroczek</p>
     </footer>
+
+    <script type="module" src="script.js"></script>
   </body>
 </html>

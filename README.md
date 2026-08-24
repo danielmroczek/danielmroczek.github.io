@@ -10,18 +10,38 @@ Website is available here: [Daniel Mroczek's Portfolio](https://danielmroczek.gi
 
 This website serves as my personal portfolio, showcasing my work and projects.
 
-The single-page site is built with [Pico.css 2](https://picocss.com) (loaded from CDN) on a minimalist,
-class-light semantic HTML structure. The color scheme follows the user's system preference automatically
-(light/dark via `prefers-color-scheme`), and the accent color is customized through `--pico-primary-*`
-variables. All extra styles are layout-only (grid, spacing, card hover); no component styles are overridden.
+The single-page site is built with [Pico.css 2](https://picocss.com) (loaded from CDN) and
+[Alpine.js 3](https://alpinejs.dev) on a minimalist, class-light semantic HTML structure. The color
+scheme follows the user's system preference automatically (light/dark via `prefers-color-scheme`), and
+the accent color is customized through `--pico-primary-*` variables. All extra styles are layout-only
+(grid, spacing, card hover); no component styles are overridden.
+
+Projects are defined declaratively in [`projects.json`](projects.json) (title, description, href,
+image, alt, tags) and rendered into the grid by Alpine. The Alpine version is pinned via an
+[import map](/index.html) in the HTML, and all application JS lives in [`script.js`](script.js), which
+imports Alpine, fetches `projects.json`, and exposes a reactive project list (ready for tag filtering).
+The [x-cloak](https://alpinejs.dev/directives/cloak) directive hides content until Alpine loads.
 
 ## Setup
 
-To run this website locally:
+To run this website locally (development):
 
 1. Clone the repository
 2. Navigate to the project directory
-3. Open `index.html` in your browser
+3. Serve the directory over HTTP (required, since `fetch("projects.json")` is blocked on `file://`
+   pages), for example: `python -m http.server`
+4. Open `http://localhost:8000` in your browser
+
+> Note: GitHub Pages serves the site over HTTPS, so no server is needed in production.
+
+## Checks
+
+A zero-dependency sanity check validates the structure of `projects.json` and the tag-filter
+logic. Run it with Node:
+
+```
+node tests/check.mjs
+```
 
 ## Contact
 

@@ -12,6 +12,11 @@
     --project-text: var(--pico-color);
   }
 
+  /* Alpine — hide elements until Alpine is ready (prevents flash of content) */
+  [x-cloak] {
+    display: none !important;
+  }
+
   /* Sticky header */
   header {
     position: sticky;

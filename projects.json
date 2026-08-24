@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Drumpad",
+    "description": "An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.",
+    "href": "https://danielmroczek.github.io/drum-pad/",
+    "image": "img/drumpad.jpg",
+    "imageAlt": "Interactive drumpad interface with square pads",
+    "tags": ["music", "audio", "keyboard"]
+  },
+  {
+    "title": "GPS Viewer",
+    "description": "A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.",
+    "href": "https://danielmroczek.github.io/gps-viewer/",
+    "image": "img/gps-viewer.jpg",
+    "imageAlt": "Map interface showing GPS tracking visualization",
+    "tags": ["gps", "maps", "tracking"]
+  },
+  {
+    "title": "Nearest Mount Point Finder",
+    "description": "Find the nearest NTRIP mount point in the ASG-EUPOS network",
+    "href": "https://danielmroczek.github.io/nearest-mountpoint/",
+    "image": "img/nearest-mountpoint.jpg",
+    "imageAlt": "Map showing NTRIP mount points in the ASG-EUPOS network",
+    "tags": ["gps", "ntrip", "maps"]
+  },
+  {
+    "title": "Reaction Time Test",
+    "description": "A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.",
+    "href": "https://danielmroczek.github.io/reaction-time/",
+    "image": "img/reaction-time.jpg",
+    "imageAlt": "Reaction time test interface with results display",
+    "tags": ["game", "test"]
+  },
+  {
+    "title": "Blind Test",
+    "description": "A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.",
+    "href": "https://danielmroczek.github.io/blind-test/",
+    "image": "img/blind-test.jpg",
+    "imageAlt": "Blind test application interface for product testing",
+    "tags": ["testing", "methodology"]
+  },
+  {
+    "title": "Color Matcher",
+    "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
+    "href": "https://danielmroczek.github.io/color-matcher/",
+    "image": "img/color-matcher.jpg",
+    "imageAlt": "Color matching tool showing color swatches and palettes",
+    "tags": ["color", "tool"]
+  }
+]
