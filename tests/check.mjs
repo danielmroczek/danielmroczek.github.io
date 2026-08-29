@@ -44,4 +44,20 @@ assert.deepEqual(music, ["Drumpad"], "music filter mismatch");
 // unknown tag -> empty
 assert.equal(filterProjects(projects, "does-not-exist").length, 0, "unknown tag shows nothing");
 
+// --- 3. Filterable tags (mirrors script.js filterableTags getter) -----------
+const getFilterableTags = (list) => {
+  const counts = {};
+  for (const p of list) {
+    for (const t of p.tags) {
+      counts[t] = (counts[t] || 0) + 1;
+    }
+  }
+  return Object.keys(counts)
+    .filter((t) => counts[t] >= 2)
+    .sort();
+};
+
+const filterable = getFilterableTags(projects);
+assert.deepEqual(filterable, ["gps", "maps"], "filterable tags should be gps and maps only");
+
 console.log("ALL CHECKS PASSED");

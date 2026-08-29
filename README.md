@@ -19,7 +19,9 @@ the accent color is customized through `--pico-primary-*` variables. All extra s
 Projects are defined declaratively in [`projects.json`](projects.json) (title, description, href,
 image, alt, tags) and rendered into the grid by Alpine. The Alpine version is pinned via an
 [import map](/index.html) in the HTML, and all application JS lives in [`script.js`](script.js), which
-imports Alpine, fetches `projects.json`, and exposes a reactive project list (ready for tag filtering).
+imports Alpine, fetches `projects.json`, and exposes a reactive project list with tag filtering.
+A tag filter bar shows only tags shared by at least 2 projects; clicking a tag filters the grid,
+and "All" resets it.
 The [x-cloak](https://alpinejs.dev/directives/cloak) directive hides content until Alpine loads.
 
 ## Setup

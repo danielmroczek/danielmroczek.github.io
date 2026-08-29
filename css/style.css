@@ -41,6 +41,28 @@
 }
 
 @layer components {
+  /* Tag filter bar */
+  .tag-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: var(--pico-block-spacing-vertical);
+
+    & button {
+      margin: 0;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+      border-radius: 9999px;
+      transition: background-color 0.15s, color 0.15s;
+    }
+
+    & button.active {
+      background: var(--pico-primary-background);
+      color: var(--pico-primary-inverse);
+      border-color: var(--pico-primary-border);
+    }
+  }
+
   /* Fluid project grid — override Pico .grid with auto-fit + min-width */
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

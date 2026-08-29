@@ -31,6 +31,13 @@
     <main class="container" x-data="projects">
       <p x-show="loading" x-cloak>Loading…</p>
 
+      <nav class="tag-bar" x-show="!loading" x-cloak aria-label="Filter projects by tag">
+        <button :class="activeTag === null && 'active'" @click="setActiveTag(null)">All</button>
+        <template x-for="tag in filterableTags" :key="tag">
+          <button :class="activeTag === tag && 'active'" @click="setActiveTag(tag)" x-text="tag"></button>
+        </template>
+      </nav>
+
       <section class="grid" x-show="!loading" x-cloak>
         <template x-for="project in filteredProjects" :key="project.href">
           <a class="project-link" :href="project.href">
