@@ -21,7 +21,7 @@
     "href": "https://danielmroczek.github.io/nearest-mountpoint/",
     "image": "img/nearest-mountpoint.jpg",
     "imageAlt": "Map showing NTRIP mount points in the ASG-EUPOS network",
-    "tags": ["gps", "ntrip", "maps"]
+    "tags": ["gps", "ntrip"]
   },
   {
     "title": "Reaction Time Test",
@@ -37,7 +37,7 @@
     "href": "https://danielmroczek.github.io/blind-test/",
     "image": "img/blind-test.jpg",
     "imageAlt": "Blind test application interface for product testing",
-    "tags": ["testing", "methodology"]
+    "tags": ["test", "methodology", "tool"]
   },
   {
     "title": "Color Matcher",

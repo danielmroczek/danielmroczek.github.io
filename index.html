@@ -32,9 +32,9 @@
       <p x-show="loading" x-cloak>Loading…</p>
 
       <nav class="tag-bar" x-show="!loading" x-cloak aria-label="Filter projects by tag">
-        <button :class="activeTag === null && 'active'" @click="setActiveTag(null)">All</button>
+        <button :class="activeTag !== null && 'secondary'" @click="setActiveTag(null)">All</button>
         <template x-for="tag in filterableTags" :key="tag">
-          <button :class="activeTag === tag && 'active'" @click="setActiveTag(tag)" x-text="tag"></button>
+          <button :class="activeTag !== tag && 'secondary'" @click="setActiveTag(tag)" x-text="tag"></button>
         </template>
       </nav>
 
