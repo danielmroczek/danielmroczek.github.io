@@ -17,12 +17,26 @@ the accent color is customized through `--pico-primary-*` variables. All extra s
 (grid, spacing, card hover); no component styles are overridden.
 
 Projects are defined declaratively in [`projects.json`](projects.json) (title, description, href,
-image, alt, tags) and rendered into the grid by Alpine. The Alpine version is pinned via an
+tags, gradientCSS, iconSvg) and rendered into the grid by Alpine. Each project card displays a
+gradient thumbnail extracted from the project's SVG favicon — the gradient background and icon
+are baked into `projects.json` at build time by [`scripts/favicons.mjs`](scripts/favicons.mjs).
+Projects without a favicon fall back to a grey gradient with the first letter of the title.
+The Alpine version is pinned via an
 [import map](/index.html) in the HTML, and all application JS lives in [`script.js`](script.js), which
 imports Alpine, fetches `projects.json`, and exposes a reactive project list with tag filtering.
 A tag filter bar shows only tags shared by at least 2 projects; clicking a tag filters the grid,
 and "All" resets it.
 The [x-cloak](https://alpinejs.dev/directives/cloak) directive hides content until Alpine loads.
+
+### Favicon script
+
+`scripts/favicons.mjs` downloads SVG favicons from each project's deployed URL and extracts
+gradient + icon data into `projects.json`. It supports two flags:
+
+- `--download-only` — download favicons to `tmp/` without extracting data
+- `--extract-only` — extract data from existing SVGs in `tmp/` without downloading
+
+Without flags, it does both (download then extract).
 
 ## Setup
 

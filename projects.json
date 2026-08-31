@@ -3,48 +3,68 @@
     "title": "Drumpad",
     "description": "An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.",
     "href": "https://danielmroczek.github.io/drum-pad/",
-    "image": "img/drumpad.jpg",
-    "imageAlt": "Interactive drumpad interface with square pads",
-    "tags": ["music", "audio", "keyboard"]
+    "tags": [
+      "music",
+      "audio",
+      "keyboard"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #ffca28 0%, #ff6f00 100%)",
+    "iconSvg": "<g transform=\"translate(3,3)\">\n    <rect fill=\"#fff\" x=\"0\" y=\"0\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"9.5\" y=\"0\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"19\" y=\"0\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"0\" y=\"9.5\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"9.5\" y=\"9.5\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"19\" y=\"9.5\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"0\" y=\"19\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"9.5\" y=\"19\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"19\" y=\"19\" width=\"7\" height=\"7\"/>\n  </g>"
   },
   {
     "title": "GPS Viewer",
     "description": "A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.",
     "href": "https://danielmroczek.github.io/gps-viewer/",
-    "image": "img/gps-viewer.jpg",
-    "imageAlt": "Map interface showing GPS tracking visualization",
-    "tags": ["gps", "maps", "tracking"]
+    "tags": [
+      "gps",
+      "maps",
+      "tracking"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #1B5E20 0%, #0A3D0A 100%)",
+    "iconSvg": "<path fill-rule=\"evenodd\" \n        d=\"M16 4 C11 4 7 8 7 13 C7 19 16 28 16 28 C16 28 25 19 25 13 C25 8 21 4 16 4 Z\n           M16 9 C18.2 9 20 10.8 20 13 C20 15.2 18.2 17 16 17 C13.8 17 12 15.2 12 13 C12 10.8 13.8 9 16 9 Z\" \n        fill=\"#fff\"/>"
   },
   {
     "title": "Nearest Mount Point Finder",
     "description": "Find the nearest NTRIP mount point in the ASG-EUPOS network",
     "href": "https://danielmroczek.github.io/nearest-mountpoint/",
-    "image": "img/nearest-mountpoint.jpg",
-    "imageAlt": "Map showing NTRIP mount points in the ASG-EUPOS network",
-    "tags": ["gps", "ntrip"]
+    "tags": [
+      "gps",
+      "ntrip"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, tomato 0%, crimson 100%)",
+    "iconSvg": "<path fill=\"#fff\"\n    d=\"M16.656 5.378 15.33 7.656c-3.767-1.13-7.136-.579-8.297 1.42-1.525 2.622 1.023 7.266 6.054 10.15 5.032 2.887 10.355 2.754 11.879.133 1.162-1.999-.042-5.172-2.91-7.847l1.324-2.278c3.99 3.484 5.775 8.06 3.827 11.41-2.407 4.142-9.303 4.313-15.415.81-6.109-3.505-9.41-9.523-7.002-13.663 1.948-3.35 6.834-4.102 11.864-2.413ZM21.026 3l2.242 1.285-6.471 11.132-2.242-1.285ZM9.182 26.429h13.29v2.57H6.963a1.292 1.283 0 0 1-1.314-1.184 1.288 1.279 0 0 1 .17-.743l2.912-5.01 2.242 1.286z\" />"
   },
   {
-    "title": "Reaction Time Test",
+    "title": "Reaction Time",
     "description": "A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.",
     "href": "https://danielmroczek.github.io/reaction-time/",
-    "image": "img/reaction-time.jpg",
-    "imageAlt": "Reaction time test interface with results display",
-    "tags": ["game", "test"]
+    "tags": [
+      "game",
+      "test"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #455a64 0%, #263238 100%)",
+    "iconSvg": "<g transform=\"translate(3 3) scale(1.0833333333333333 1.0833333333333333)\">\n  <path fill=\"none\" stroke=\"#fff\" stroke-width=\"1.8461538461538463\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n      d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"></path>\n</g>"
   },
   {
     "title": "Blind Test",
     "description": "A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.",
     "href": "https://danielmroczek.github.io/blind-test/",
-    "image": "img/blind-test.jpg",
-    "imageAlt": "Blind test application interface for product testing",
-    "tags": ["test", "methodology", "tool"]
+    "tags": [
+      "test",
+      "methodology",
+      "tool"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #2E7D32 0%, #1B5E20 100%)",
+    "iconSvg": "<path\r\n    d=\"M16 4a4.495 4.495 0 0 0-4.242 3H10c-1.655 0-3 1.345-3 3v15c0 1.655 1.345 3 3 3h12c1.655 0 3-1.345 3-3V10c0-1.655-1.345-3-3-3h-1.758A4.495 4.495 0 0 0 16 4m0 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3m-4.04 7.748A2.63 2.63 0 0 1 14.433 13h2.733a2.96 2.96 0 0 1 2.958 2.958c0 1.06-.567 2.039-1.486 2.569l-1.514.867c-.01.61-.51 1.106-1.125 1.106a1.12 1.12 0 0 1-1.125-1.125v-.633c0-.403.216-.773.567-.975l2.077-1.19a.709.709 0 0 0-.352-1.322h-2.733c-.159 0-.3.098-.351.248l-.019.056c-.206.586-.853.891-1.434.685a1.13 1.13 0 0 1-.685-1.435l.02-.056zM14.5 23.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0\"\r\n    style=\"fill:#fff;stroke-width:.857143\" />"
   },
   {
     "title": "Color Matcher",
     "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
     "href": "https://danielmroczek.github.io/color-matcher/",
-    "image": "img/color-matcher.jpg",
-    "imageAlt": "Color matching tool showing color swatches and palettes",
-    "tags": ["color", "tool"]
+    "tags": [
+      "color",
+      "tool"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #F44336 5%, #FF9800 20%, #FFEB3B 35%, #4CAF50 50%, #2196F3 65%, #3F51B5 80%, #9C27B0 95%)"
   }
 ]
