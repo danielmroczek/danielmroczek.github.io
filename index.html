@@ -17,14 +17,11 @@
   <body>
     <header>
       <nav class="container">
-        <ul>
-          <li><h1>Daniel Mroczek: portfolio</h1></li>
-        </ul>
-        <ul>
-          <li>
-            <a href="https://github.com/danielmroczek" aria-label="GitHub profile" target="_blank" rel="noopener"></a>
-          </li>
-        </ul>
+        <h1>Daniel Mroczek: portfolio</h1>
+        <a href="https://github.com/danielmroczek" aria-label="GitHub profile" target="_blank" rel="noopener">
+          <img class="github-icon github-icon--light" src="https://cdn.simpleicons.org/github/181717" alt="GitHub" width="24" height="24" />
+          <img class="github-icon github-icon--dark" src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub" width="24" height="24" />
+        </a>
       </nav>
     </header>
 
@@ -32,9 +29,9 @@
       <p x-show="loading" x-cloak>Loading…</p>
 
       <nav class="tag-bar" x-show="!loading" x-cloak aria-label="Filter projects by tag">
-        <button :class="activeTag !== null && 'secondary'" @click="setActiveTag(null)">All</button>
+        <button :class="activeTag !== null && 'secondary outline'" @click="setActiveTag(null)">All</button>
         <template x-for="tag in filterableTags" :key="tag">
-          <button :class="activeTag !== tag && 'secondary'" @click="setActiveTag(tag)" x-text="tag"></button>
+          <button :class="activeTag !== tag && 'secondary outline'" @click="setActiveTag(tag)" x-text="tag"></button>
         </template>
       </nav>
 

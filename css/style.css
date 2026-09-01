@@ -1,7 +1,5 @@
 /* Load Pico.css (CDN) into its own cascade layer */
 @import url("https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css") layer(pico);
-/* Font Awesome Brands — GitHub icon via ::before (no inline SVG) */
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css") layer(pico);
 
 /* Custom layers — declared after "pico" so later layers win */
 @layer base, components;
@@ -26,16 +24,50 @@
     border-bottom: 1px solid var(--pico-muted-border-color);
   }
 
-  /* GitHub brand icon — rendered via Font Awesome ::before (no inline SVG) */
+  /* Simple header nav — title left, icon right */
+  nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  /* GitHub brand icon — referenced from Simple Icons CDN */
   nav a[aria-label="GitHub profile"] {
     display: inline-flex;
     align-items: center;
-    font-family: "Font Awesome 6 Brands";
-    font-size: 1.5rem;
     text-decoration: none;
 
-    &::before {
-      content: "\f09b"; /* fa-github */
+    & .github-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      transition: filter 0.2s ease;
+    }
+
+      /* Hover tint — shift the monochrome icon toward Pico's primary color */
+    &:hover {
+      fill: var(--pico-primary-hover);
+    }
+
+
+  }
+
+  /* Theme-aware icon: dark fill on light theme, white fill on dark theme */
+  .github-icon--dark {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .github-icon--light {
+      display: none;
+    }
+
+    .github-icon--dark {
+      display: inline-block;
     }
   }
 }
