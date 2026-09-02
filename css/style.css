@@ -36,38 +36,16 @@
     }
   }
 
-  /* GitHub brand icon — referenced from Simple Icons CDN */
+  /* GitHub brand icon via Iconify web component */
   nav a[aria-label="GitHub profile"] {
     display: inline-flex;
     align-items: center;
     text-decoration: none;
+    color: var(--pico-color);
+    transition: color 0.2s ease;
 
-    & .github-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-      transition: filter 0.2s ease;
-    }
-
-      /* Hover tint — shift the monochrome icon toward Pico's primary color */
     &:hover {
-      fill: var(--pico-primary-hover);
-    }
-
-
-  }
-
-  /* Theme-aware icon: dark fill on light theme, white fill on dark theme */
-  .github-icon--dark {
-    display: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .github-icon--light {
-      display: none;
-    }
-
-    .github-icon--dark {
-      display: inline-block;
+      color: var(--pico-primary-hover);
     }
   }
 }
