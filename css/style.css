@@ -133,20 +133,45 @@
     user-select: none;
   }
 
-  /* Whole-card link. Keep content as plain text, not link-colored —
-     the <a> carries --pico-color: primary in this scope, so reset it
-     to the scheme's default text color captured at :root. */
+  /* Thumb link — gradient area is clickable */
   .project-link {
+    display: block;
     text-decoration: none;
+    color: inherit;
+  }
 
-    & article {
-      --pico-color: var(--project-text);
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
+  /* Sticky bottom action bar */
+  .project-actions {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 0.5rem; */
+    margin-top: auto;         /* push to bottom of card */
+    padding-top: var(--pico-block-spacing-vertical);
+  }
 
-    &:hover article {
-      transform: scale(1.03);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .project-actions__btn {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    /* font-size: 1rem; */
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+
+    /* Use Pico secondary button look */
+    /* background: var(--pico-secondary-background); */
+    color: var(--pico-secondary-inverse);
+    /* border: 1px solid var(--pico-secondary-border); */
+
+    &:hover {
+      opacity: 0.85;
     }
+  }
+
+  /* Tiny divider line between the two buttons */
+  .project-actions__btn + .project-actions__btn {
+    border-left: 1px solid var(--pico-secondary);
   }
 }

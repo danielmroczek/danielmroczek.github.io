@@ -3,6 +3,7 @@
     "title": "Drumpad",
     "description": "An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.",
     "href": "https://danielmroczek.github.io/drum-pad/",
+    "repo": "https://github.com/danielmroczek/drum-pad",
     "tags": [
       "music",
       "audio",
@@ -15,6 +16,7 @@
     "title": "GPS Viewer",
     "description": "A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.",
     "href": "https://danielmroczek.github.io/gps-viewer/",
+    "repo": "https://github.com/danielmroczek/gps-viewer",
     "tags": [
       "gps",
       "maps",
@@ -27,6 +29,7 @@
     "title": "Nearest Mount Point Finder",
     "description": "Find the nearest NTRIP mount point in the ASG-EUPOS network",
     "href": "https://danielmroczek.github.io/nearest-mountpoint/",
+    "repo": "https://github.com/danielmroczek/nearest-mountpoint",
     "tags": [
       "gps",
       "ntrip"
@@ -38,6 +41,7 @@
     "title": "Reaction Time",
     "description": "A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.",
     "href": "https://danielmroczek.github.io/reaction-time/",
+    "repo": "https://github.com/danielmroczek/reaction-time",
     "tags": [
       "game",
       "test"
@@ -49,6 +53,7 @@
     "title": "Blind Test",
     "description": "A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.",
     "href": "https://danielmroczek.github.io/blind-test/",
+    "repo": "https://github.com/danielmroczek/blind-test",
     "tags": [
       "test",
       "methodology",
@@ -61,6 +66,7 @@
     "title": "Color Matcher",
     "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
     "href": "https://danielmroczek.github.io/color-matcher/",
+    "repo": "https://github.com/danielmroczek/color-matcher",
     "tags": [
       "color",
       "tool"

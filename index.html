@@ -37,8 +37,8 @@
 
       <section class="grid" x-show="!loading" x-cloak>
         <template x-for="project in filteredProjects" :key="project.href">
-          <a class="project-link" :href="project.href">
-            <article>
+          <article>
+            <a class="project-link" :href="project.href">
               <div class="thumb"
                    :style="project.gradientCSS ? { background: project.gradientCSS } : {}"
                    :class="{ 'thumb--fallback': !project.gradientCSS }">
@@ -50,12 +50,22 @@
                   <span class="thumb__letter" x-text="project.title?.[0] || '?'"></span>
                 </template>
               </div>
-              <div class="project-body">
-                <h3 x-text="project.title"></h3>
-                <p x-text="project.description"></p>
-              </div>
-            </article>
-          </a>
+            </a>
+            <div class="project-body">
+              <h3 x-text="project.title"></h3>
+              <p x-text="project.description"></p>
+            </div>
+            <div class="project-actions">
+              <a class="project-actions__btn" :href="project.href" target="_blank" rel="noopener">
+                <iconify-icon icon="lucide:external-link" width="16" height="16"></iconify-icon>
+                Demo
+              </a>
+              <a class="project-actions__btn" :href="project.repo" target="_blank" rel="noopener">
+                <iconify-icon icon="lucide:github" width="16" height="16"></iconify-icon>
+                Repo
+              </a>
+            </div>
+          </article>
         </template>
       </section>
     </main>
