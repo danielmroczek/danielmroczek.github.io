@@ -16,11 +16,13 @@ scheme follows the user's system preference automatically (light/dark via `prefe
 the accent color is customized through `--pico-primary-*` variables. All extra styles are layout-only
 (grid, spacing, card hover); no component styles are overridden.
 
-Projects are defined declaratively in [`projects.json`](projects.json) (title, description, href,
-tags, gradientCSS, iconSvg) and rendered into the grid by Alpine. Each project card displays a
-gradient thumbnail extracted from the project's SVG favicon — the gradient background and icon
-are baked into `projects.json` at build time by [`scripts/favicons.mjs`](scripts/favicons.mjs).
-Projects without a favicon fall back to a grey gradient with the first letter of the title.
+Projects are rendered into the grid by Alpine from [`projects.json`](projects.json) (title,
+description, href, repo, tags, gradientCSS, iconSvg). `projects.json` is **generated**, not
+hand-edited — see [Regenerating projects.json](#regenerating-projectsjson) below. Each project
+card displays a gradient thumbnail extracted from the project's SVG favicon — the gradient
+background and icon are baked into `projects.json` at build time by the generator.
+Projects without a favicon or deployed demo fall back to a grey gradient with the first letter
+of the title. Cards without a deployed demo show only the Repo link (no Demo).
 The Alpine version is pinned via an
 [import map](/index.html) in the HTML, and all application JS lives in [`script.js`](script.js), which
 imports Alpine, fetches `projects.json`, and exposes a reactive project list with tag filtering.
@@ -28,15 +30,70 @@ A tag filter bar shows only tags shared by at least 2 projects; clicking a tag f
 and "All" resets it.
 The [x-cloak](https://alpinejs.dev/directives/cloak) directive hides content until Alpine loads.
 
+### Regenerating projects.json
+
+`projects.json` is generated from [`config.json`](config.json) against the live GitHub account
+by `scripts/generate.mjs`:
+
+```
+node scripts/generate.mjs
+```
+
+The generator:
+
+1. Fetches all non-fork, non-archived repositories for the configured owner.
+2. Excludes repos listed under `ignoredProjects`, plus the owner's own `<owner>.github.io`
+   site and the special profile repo (named after the owner).
+3. Resolves each repo's Pages URL (`https://<owner>.github.io/<name>`) as its demo `href`;
+   repos without Pages become repository-only cards (no demo link).
+4. Builds each project's tags from the repo's GitHub topics plus any curated `overrides`.
+5. Downloads each project's `favicon.svg` and extracts the gradient + icon into `projects.json`.
+6. Defaults to sorting by `pushed_at` (most recent first).
+
+Run with `--no-favicons` to skip the favicon download step and instead reuse whatever SVG
+favicons already exist in `tmp/` (useful for a quick local experiment without re-hitting GitHub):
+
+```
+node scripts/generate.mjs --no-favicons
+```
+
+The GitHub token is read from `.env` (`GITHUB_TOKEN=...`) but is optional — the script also
+works against the public API without it. `.env` is gitignored.
+
+#### config.json
+
+```jsonc
+{
+  "owner": "danielmroczek",            // GitHub account to pull projects from
+  "ignoredProjects": [],               // exact repo names to exclude
+  "include": {},                       // (reserved) opt back into default exclusions
+  "sort": "pushed",                    // "pushed" | "created" | "full_name" | "size"
+  "overrides": {
+    "drum-pad": {                      // key = repo name
+      "title": "Drumpad",              // optional curated display title
+      "description": "...",            // optional curated description
+      "tags": ["music", "audio"],      // optional curated tags (merged with GitHub topics)
+      "href": "https://...",           // optional explicit demo URL
+      "favicon": "https://.../x.svg"   // optional explicit favicon URL
+    }
+  }
+}
+```
+
+`overrides` is the only place for hand curation (nice titles, descriptions, tags GitHub can't
+infer, custom demo/favicon locations). Everything else is pulled live.
+
 ### Favicon script
 
-`scripts/favicons.mjs` downloads SVG favicons from each project's deployed URL and extracts
-gradient + icon data into `projects.json`. It supports two flags:
+`scripts/favicons.mjs` is the thin CLI around the shared favicon logic used by the generator.
+It reads `projects.json`, downloads SVG favicons, and extracts gradient + icon data back into
+`projects.json`. It supports two flags:
 
 - `--download-only` — download favicons to `tmp/` without extracting data
 - `--extract-only` — extract data from existing SVGs in `tmp/` without downloading
 
-Without flags, it does both (download then extract).
+Without flags, it does both (download then extract). Prefer `scripts/generate.mjs` for normal
+use — it regenerates the whole file including favicons.
 
 ## Setup
 

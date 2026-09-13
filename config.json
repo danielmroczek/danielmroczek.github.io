@@ -1,0 +1,38 @@
+{
+  "owner": "danielmroczek",
+  "ignoredProjects": [],
+  "include": {},
+  "sort": "pushed",
+  "overrides": {
+    "drum-pad": {
+      "title": "Drumpad",
+      "description": "An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.",
+      "tags": ["music", "audio", "keyboard"]
+    },
+    "gps-viewer": {
+      "title": "GPS Viewer",
+      "description": "A real-time GPS tracking application that displays your current location on an interactive map. Features position history and accuracy indicators using weighted averaging for enhanced precision.",
+      "tags": ["gps", "maps", "tracking"]
+    },
+    "nearest-mountpoint": {
+      "title": "Nearest Mount Point Finder",
+      "description": "Find the nearest NTRIP mount point in the ASG-EUPOS network",
+      "tags": ["gps", "ntrip"]
+    },
+    "reaction-time": {
+      "title": "Reaction Time",
+      "description": "A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.",
+      "tags": ["game", "test"]
+    },
+    "blind-test": {
+      "title": "Blind Test",
+      "description": "A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.",
+      "tags": ["test", "methodology", "tool"]
+    },
+    "color-matcher": {
+      "title": "Color Matcher",
+      "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
+      "tags": ["color", "tool"]
+    }
+  }
+}

@@ -36,9 +36,24 @@
       </nav>
 
       <section class="grid" x-show="!loading" x-cloak>
-        <template x-for="project in filteredProjects" :key="project.href">
+        <template x-for="project in filteredProjects" :key="project.repo">
           <article>
-            <a class="project-link" :href="project.href">
+            <template x-if="project.href">
+              <a class="project-link" :href="project.href">
+                <div class="thumb"
+                     :style="project.gradientCSS ? { background: project.gradientCSS } : {}"
+                     :class="{ 'thumb--fallback': !project.gradientCSS }">
+                  <template x-if="project.iconSvg">
+                    <svg class="thumb__icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                         x-html="project.iconSvg"></svg>
+                  </template>
+                  <template x-if="!project.iconSvg && !project.gradientCSS">
+                    <span class="thumb__letter" x-text="project.title?.[0] || '?'"></span>
+                  </template>
+                </div>
+              </a>
+            </template>
+            <template x-if="!project.href">
               <div class="thumb"
                    :style="project.gradientCSS ? { background: project.gradientCSS } : {}"
                    :class="{ 'thumb--fallback': !project.gradientCSS }">
@@ -50,16 +65,18 @@
                   <span class="thumb__letter" x-text="project.title?.[0] || '?'"></span>
                 </template>
               </div>
-            </a>
+            </template>
             <div class="project-body">
               <h3 x-text="project.title"></h3>
               <p x-text="project.description"></p>
             </div>
             <div class="project-actions">
-              <a class="project-actions__btn" :href="project.href" target="_blank" rel="noopener">
-                <iconify-icon icon="lucide:external-link" width="16" height="16"></iconify-icon>
-                Demo
-              </a>
+              <template x-if="project.href">
+                <a class="project-actions__btn" :href="project.href" target="_blank" rel="noopener">
+                  <iconify-icon icon="lucide:external-link" width="16" height="16"></iconify-icon>
+                  Demo
+                </a>
+              </template>
               <a class="project-actions__btn" :href="project.repo" target="_blank" rel="noopener">
                 <iconify-icon icon="lucide:github" width="16" height="16"></iconify-icon>
                 Repo

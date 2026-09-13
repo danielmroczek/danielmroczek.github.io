@@ -1,5 +1,174 @@
 [
   {
+    "title": "Zbiorkomapa",
+    "description": "Interaktywna wizualizacja tras komunikacji miejskiej w Poznaniu",
+    "href": "https://danielmroczek.github.io/zbiorkomapa/",
+    "repo": "https://github.com/danielmroczek/zbiorkomapa",
+    "tags": [
+      "mpk",
+      "poznan",
+      "ztm"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #33691e 0%, #558b2f 100%)",
+    "iconSvg": "<g transform=\"translate(4 4)\">\n  <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4 6 2 7\"></path>\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10 6h4\"></path>\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m22 7-2-1\"></path>\n    <rect fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"16\" height=\"16\" x=\"4\" y=\"3\" rx=\"2\">\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M4 11h16\"></path>\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M8 15h.01\"></path>\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M16 15h.01\"></path>\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 19v2\"></path>\n    <path fill=\"none\" stroke=\"#fff\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M18 21v-2\"></path>\n</g>"
+  },
+  {
+    "title": "Map Grid",
+    "description": "Explore where parallels and meridians intersect",
+    "href": "https://danielmroczek.github.io/map-grid/",
+    "repo": "https://github.com/danielmroczek/map-grid",
+    "tags": [
+      "map"
+    ]
+  },
+  {
+    "title": "Reaction Time",
+    "description": "A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.",
+    "href": "https://danielmroczek.github.io/reaction-time/",
+    "repo": "https://github.com/danielmroczek/reaction-time",
+    "tags": [
+      "game",
+      "test",
+      "reaction-time"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #455a64 0%, #263238 100%)",
+    "iconSvg": "<g transform=\"translate(3 3) scale(1.0833333333333333 1.0833333333333333)\">\n  <path fill=\"none\" stroke=\"#fff\" stroke-width=\"1.8461538461538463\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n      d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"></path>\n</g>"
+  },
+  {
+    "title": "Wersi Cx5 Manual",
+    "description": "English manual for Wersi CX-5 Drum Machine",
+    "href": "https://danielmroczek.github.io/wersi-cx5-manual/",
+    "repo": "https://github.com/danielmroczek/wersi-cx5-manual",
+    "tags": []
+  },
+  {
+    "title": "Js Snake",
+    "description": "A classic Snake game built with vanilla JS",
+    "href": "https://danielmroczek.github.io/js-snake/",
+    "repo": "https://github.com/danielmroczek/js-snake",
+    "tags": [
+      "snake-game"
+    ]
+  },
+  {
+    "title": "Nearest Mount Point Finder",
+    "description": "Find the nearest NTRIP mount point in the ASG-EUPOS network",
+    "href": "https://danielmroczek.github.io/nearest-mountpoint/",
+    "repo": "https://github.com/danielmroczek/nearest-mountpoint",
+    "tags": [
+      "gps",
+      "ntrip",
+      "asg-eupos",
+      "geolocation",
+      "rtk",
+      "eupos",
+      "rtk2go"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, tomato 0%, crimson 100%)",
+    "iconSvg": "<path fill=\"#fff\"\n    d=\"M16.656 5.378 15.33 7.656c-3.767-1.13-7.136-.579-8.297 1.42-1.525 2.622 1.023 7.266 6.054 10.15 5.032 2.887 10.355 2.754 11.879.133 1.162-1.999-.042-5.172-2.91-7.847l1.324-2.278c3.99 3.484 5.775 8.06 3.827 11.41-2.407 4.142-9.303 4.313-15.415.81-6.109-3.505-9.41-9.523-7.002-13.663 1.948-3.35 6.834-4.102 11.864-2.413ZM21.026 3l2.242 1.285-6.471 11.132-2.242-1.285ZM9.182 26.429h13.29v2.57H6.963a1.292 1.283 0 0 1-1.314-1.184 1.288 1.279 0 0 1 .17-.743l2.912-5.01 2.242 1.286z\" />"
+  },
+  {
+    "title": "Lego Set Finder",
+    "description": "Node.js CLI that analyzes a Rebrickable part list and suggests likely LEGO set combinations to maximize owned-part usage and minimize missing parts",
+    "repo": "https://github.com/danielmroczek/lego-set-finder-cli",
+    "tags": [
+      "lego",
+      "rebrickable"
+    ]
+  },
+  {
+    "title": "Lego Lister",
+    "description": "Search a LEGO set and get a clean, printable parts list with BrickLink-ready links.",
+    "href": "https://danielmroczek.github.io/lego-lister/",
+    "repo": "https://github.com/danielmroczek/lego-lister",
+    "tags": [
+      "lego-parts"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #F6D01F 0%, red 100%)",
+    "iconSvg": "<rect x=\"6\" y=\"8\" width=\"20\" height=\"20\" fill=\"#fff\"/>\n  <rect x=\"8\" y=\"4\" width=\"6\" height=\"4\" fill=\"#fff\"/>\n  <rect x=\"18\" y=\"4\" width=\"6\" height=\"4\" fill=\"#fff\"/>"
+  },
+  {
+    "title": "Pickabrick List Merger",
+    "description": "A lightweight tool to merger LEGO Pick-a-Brick part lists.",
+    "href": "https://danielmroczek.github.io/pickabrick-list-merger/",
+    "repo": "https://github.com/danielmroczek/pickabrick-list-merger",
+    "tags": [],
+    "gradientCSS": "linear-gradient(to bottom right, #f73b3b 0%, #f75f5f 100%)",
+    "iconSvg": "<g transform=\"translate(5 5) scale(0.9166666666666666 0.9166666666666666)\">\n  <rect fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"18\" height=\"12\" x=\"3\" y=\"8\" rx=\"1\"><path fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M10 8V5c0-.6-.4-1-1-1H6a1 1 0 0 0-1 1v3\"></path><path fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 8V5c0-.6-.4-1-1-1h-3a1 1 0 0 0-1 1v3\"></path>\n</g>"
+  },
+  {
+    "title": "Pat2midi",
+    "description": "A command-line tool to convert drum pattern text files (.pat) to MIDI files",
+    "repo": "https://github.com/danielmroczek/pat2midi",
+    "tags": [
+      "drum-machine",
+      "drum-patterns",
+      "midi"
+    ]
+  },
+  {
+    "title": "30 Ton",
+    "description": "Projekt prezentujący historię notowań kultowej polskiej listy przebojów \"30 Ton\"",
+    "href": "https://danielmroczek.github.io/30-ton/",
+    "repo": "https://github.com/danielmroczek/30-ton",
+    "tags": [],
+    "gradientCSS": "linear-gradient(to bottom right, #DD2C00 0%, #D50000 100%)",
+    "iconSvg": "<path\n    d=\"M4 0C1.784 0 0 1.784 0 4v24c0 2.216 1.784 4 4 4h24c2.216 0 4-1.784 4-4V4c0-2.216-1.784-4-4-4Zm2.084 4h8.658v2.354l-2.38 8.658q.675-.027 1.406.433.974.596.974 1.733v7.277q0 3.328-4.33 3.545-4.328-.19-4.328-3.545v-2.543h2.732v3.734h2.977v-8.468H8.816l2.977-10.824H8.816v3.923H6.084Zm15.504 0q1.73 0 2.84.676 1.488.92 1.488 2.869v16.91q0 3.356-4.328 3.545-4.113-.216-4.113-3.545V7.545q0-1.949 1.433-2.87Q19.992 4 21.588 4m-1.381 2.354v19.292h2.977V6.354Z\"\n    style=\"fill:url(#a)\" />"
+  },
+  {
+    "title": "Text Length Sorter",
+    "description": "A web application that sorts text lines based on their visual length. Built with Vue.js and Bootstrap.",
+    "href": "https://danielmroczek.github.io/text-length-sorter/",
+    "repo": "https://github.com/danielmroczek/text-length-sorter",
+    "tags": [
+      "font-metrics",
+      "text-sorting",
+      "visual-length"
+    ]
+  },
+  {
+    "title": "Color Matcher",
+    "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
+    "href": "https://danielmroczek.github.io/color-matcher/",
+    "repo": "https://github.com/danielmroczek/color-matcher",
+    "tags": [
+      "color",
+      "tool",
+      "colors"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #F44336 5%, #FF9800 20%, #FFEB3B 35%, #4CAF50 50%, #2196F3 65%, #3F51B5 80%, #9C27B0 95%)"
+  },
+  {
+    "title": "Drum Bit",
+    "description": "A web-based drum machine that lets you create and share beat patterns using 16-bit numbers",
+    "href": "https://danielmroczek.github.io/drum-bit/",
+    "repo": "https://github.com/danielmroczek/drum-bit",
+    "tags": [],
+    "gradientCSS": "linear-gradient(to bottom right, #019863 0%, #004b31 100%)",
+    "iconSvg": "<g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.594\" style=\"stroke-width:1.59411;stroke:#fff;stroke-opacity:1\" transform=\"matrix(1.25926 0 0 1.25 .889 1)\">\n        <rect fill=\"#fff\" width=\"4\" height=\"6\" x=\"14\" y=\"14\" rx=\"1.588\" ry=\"1.6\"/>\n        <rect fill=\"#fff\" width=\"4\" height=\"6\" x=\"6\" y=\"4\" rx=\"1.588\" ry=\"1.6\" />\n        <path fill=\"#fff\" d=\"M6 20h4M14 10h4M6 14h2v6M14 4h2v6\"/>\n    </g>"
+  },
+  {
+    "title": "Crazy Snake",
+    "description": "Retro-style snake survival game. With high score.",
+    "href": "https://danielmroczek.github.io/crazy-snake/",
+    "repo": "https://github.com/danielmroczek/crazy-snake",
+    "tags": [
+      "game",
+      "snake-game",
+      "web"
+    ]
+  },
+  {
+    "title": "Marble Maze",
+    "description": "Tilt the board, reach the red goal!",
+    "href": "https://danielmroczek.github.io/marble-maze/",
+    "repo": "https://github.com/danielmroczek/marble-maze",
+    "tags": [
+      "marble",
+      "threejs"
+    ]
+  },
+  {
     "title": "Drumpad",
     "description": "An interactive online drumpad that allows you to play various drum sounds using your keyboard or mouse. Perfect for music enthusiasts and aspiring drummers.",
     "href": "https://danielmroczek.github.io/drum-pad/",
@@ -7,10 +176,111 @@
     "tags": [
       "music",
       "audio",
-      "keyboard"
+      "keyboard",
+      "drumpad"
     ],
     "gradientCSS": "linear-gradient(to bottom right, #ffca28 0%, #ff6f00 100%)",
     "iconSvg": "<g transform=\"translate(3,3)\">\n    <rect fill=\"#fff\" x=\"0\" y=\"0\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"9.5\" y=\"0\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"19\" y=\"0\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"0\" y=\"9.5\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"9.5\" y=\"9.5\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"19\" y=\"9.5\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"0\" y=\"19\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"9.5\" y=\"19\" width=\"7\" height=\"7\"/>\n    <rect fill=\"#fff\" x=\"19\" y=\"19\" width=\"7\" height=\"7\"/>\n  </g>"
+  },
+  {
+    "title": "Favicon Creator",
+    "description": "A simple, browser-based tool for creating custom favicons for your websites. Design beautiful icons with customizable shapes, colors, and positioning without needing graphic design skills.",
+    "href": "https://danielmroczek.github.io/favicon-creator/",
+    "repo": "https://github.com/danielmroczek/favicon-creator",
+    "tags": [
+      "browser",
+      "favicon"
+    ]
+  },
+  {
+    "title": "Drum Synth",
+    "description": "A web-based drum synthesizer inspired by classic drum machines",
+    "href": "https://danielmroczek.github.io/drum-synth/",
+    "repo": "https://github.com/danielmroczek/drum-synth",
+    "tags": [
+      "drum-machine"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #f57c00 0%, #e65100 100%)",
+    "iconSvg": "<g transform=\"translate(5 5) scale(0.9166666666666666 0.9166666666666666)\">\n  <circle fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" cx=\"18\" cy=\"18\" r=\"3\"></circle><circle fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" cx=\"6\" cy=\"6\" r=\"3\"></circle><path fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M18 6V5\"></path><path fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M18 11v-1\"></path><line fill=\"none\" stroke=\"#fff\" stroke-width=\"2.181818181818182\" stroke-linecap=\"round\" stroke-linejoin=\"round\" x1=\"6\" x2=\"6\" y1=\"9\" y2=\"21\"></line>\n</g>"
+  },
+  {
+    "title": "Plot Finder",
+    "description": "Aplikacja webowa do wyszukiwania i inspekcji działek ewidencyjnych na mapie z użyciem danych GUGIK ULDK.",
+    "href": "https://danielmroczek.github.io/plot-finder/",
+    "repo": "https://github.com/danielmroczek/plot-finder",
+    "tags": [
+      "uldk"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #689f38 0%, #33691e 100%)",
+    "iconSvg": "<path d=\"M16.038 16.815a.598.598 0 0 1 .777-.777l10.803 4.202a.6.6 0 0 1-.04 1.131l-4.133 1.282a1.2 1.2 0 0 0-.793.792l-1.28 4.133a.6.6 0 0 1-1.132.04z\" style=\"fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1\"/>\n    <path d=\"M7.793 5.447a2.345 2.345 0 0 0-2.346 2.346m18.76-2.346a2.345 2.345 0 0 1 2.346 2.346m-18.76 18.76a2.345 2.345 0 0 1-2.346-2.346m7.036-18.76h1.172m-1.172 21.106h2.345m3.518-21.106h1.172m-14.07 7.036v1.172m21.105-1.172v2.345M5.447 18.346v1.172\" style=\"fill:none;stroke:#fff;stroke-width:1.89486;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1\"/>"
+  },
+  {
+    "title": "Next Track",
+    "description": "Random album discovery tool featuring curated music charts like Rolling Stone 500",
+    "href": "https://danielmroczek.github.io/next-track/",
+    "repo": "https://github.com/danielmroczek/next-track",
+    "tags": [
+      "music-discovery"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #ad6400 0%, #693a00 100%)",
+    "iconSvg": "<g style=\"fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;opacity:1\" transform=\"matrix(1.1 0 0 1.1 2.8 2.8)\">\n        <path fill=\"#fff\" d=\"M6 12c0-1.7.7-3.2 1.8-4.2\"/>\n        <circle fill=\"#fff\" cx=\"12\" cy=\"12\" r=\"2\"/>\n        <path fill=\"#fff\" d=\"M18 12c0 1.7-.7 3.2-1.8 4.2\"/>\n        <circle fill=\"#fff\" cx=\"12\" cy=\"12\" r=\"10\"/>\n    </g>"
+  },
+  {
+    "title": "Instachords",
+    "description": "Instant chord progression generator for musicians",
+    "href": "https://danielmroczek.github.io/instachords/",
+    "repo": "https://github.com/danielmroczek/instachords",
+    "tags": [
+      "chord-progressions",
+      "chords",
+      "music"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #8b5cf6 0%, #06b6d4 100%)",
+    "iconSvg": "<g transform=\"translate(4 4)\">\n  <path fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"#fff\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n            stroke-width=\"2\"\n            d=\"M8.23 9.85A3 3 0 0 1 11 8a5 5 0 0 1 5 5 3 3 0 0 1-1.85 2.77l-.92.38A2 2 0 0 0 12 18a4 4 0 0 1-4 4 6 6 0 0 1-6-6 4 4 0 0 1 4-4 2 2 0 0 0 1.85-1.23ZM6 16l2 2M20.1 2.3a1 1 0 0 0-1.4 0l-1.114 1.114A2 2 0 0 0 17 4.828v1.344a2 2 0 0 1-.586 1.414A2 2 0 0 1 17.828 7h1.344a2 2 0 0 0 1.414-.586L21.7 5.3a1 1 0 0 0 0-1.4zm-8.2 9.8 4.514-4.514\" />\n</g>"
+  },
+  {
+    "title": "Twister Spinner",
+    "description": "An elegant spinner for the classic game of Twister. No ads, no tracking — just spin and play!",
+    "href": "https://danielmroczek.github.io/twister-spinner/",
+    "repo": "https://github.com/danielmroczek/twister-spinner",
+    "tags": []
+  },
+  {
+    "title": "Crossword Solver",
+    "description": "A web application to help solve crossword puzzles by finding matching words.",
+    "href": "https://danielmroczek.github.io/crossword-solver/",
+    "repo": "https://github.com/danielmroczek/crossword-solver",
+    "tags": [
+      "crossword",
+      "crossword-solver",
+      "crossword-solving",
+      "solver"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #673AB7 0%, #3F51B5 100%)",
+    "iconSvg": "<path fill=\"#fff\" d=\"M6.5 6.5h6.333v6.333H6.5z\" />\n  <path fill=\"#fff\" d=\"M12.833 6.5h6.333v6.333h-6.333zM19.167 6.5H25.5v6.333h-6.333zM19.167 12.833H25.5v6.333h-6.333z\" />\n  <path fill=\"#fff\" d=\"M12.833 12.833h6.333v6.333h-6.333z\" />\n  <path fill=\"#fff\" d=\"M6.5 12.833h6.333v6.333H6.5zM6.5 19.167h6.333V25.5H6.5z\" />\n  <path fill=\"#fff\" d=\"M12.833 19.167h6.333V25.5h-6.333z\" />\n  <path fill=\"#fff\" d=\"M19.167 19.167H25.5V25.5h-6.333z\" />"
+  },
+  {
+    "title": "Blind Test",
+    "description": "A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.",
+    "href": "https://danielmroczek.github.io/blind-test/",
+    "repo": "https://github.com/danielmroczek/blind-test",
+    "tags": [
+      "test",
+      "methodology",
+      "tool",
+      "blind-test"
+    ],
+    "gradientCSS": "linear-gradient(to bottom right, #2E7D32 0%, #1B5E20 100%)",
+    "iconSvg": "<path\r\n    d=\"M16 4a4.495 4.495 0 0 0-4.242 3H10c-1.655 0-3 1.345-3 3v15c0 1.655 1.345 3 3 3h12c1.655 0 3-1.345 3-3V10c0-1.655-1.345-3-3-3h-1.758A4.495 4.495 0 0 0 16 4m0 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3m-4.04 7.748A2.63 2.63 0 0 1 14.433 13h2.733a2.96 2.96 0 0 1 2.958 2.958c0 1.06-.567 2.039-1.486 2.569l-1.514.867c-.01.61-.51 1.106-1.125 1.106a1.12 1.12 0 0 1-1.125-1.125v-.633c0-.403.216-.773.567-.975l2.077-1.19a.709.709 0 0 0-.352-1.322h-2.733c-.159 0-.3.098-.351.248l-.019.056c-.206.586-.853.891-1.434.685a1.13 1.13 0 0 1-.685-1.435l.02-.056zM14.5 23.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0\"\r\n    style=\"fill:#fff;stroke-width:.857143\" />"
+  },
+  {
+    "title": "Daylight Dashboard",
+    "description": "An app that provides detailed information about daylight hours and sun positions for your location",
+    "href": "https://danielmroczek.github.io/daylight-dashboard/",
+    "repo": "https://github.com/danielmroczek/daylight-dashboard",
+    "tags": [],
+    "gradientCSS": "linear-gradient(to bottom right, #93c5fd 0%, #60a5fa 100%)",
+    "iconSvg": "<g transform=\"translate(4,4) scale(1.5)\">\n        <path d=\"M7 3V0H9V3H7Z\" fill=\"#fff\"/>\n        <path d=\"M9 13V16H7V13H9Z\" fill=\"#fff\"/>\n        <path d=\"M11 8C11 9.65685 9.65685 11 8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8Z\" fill=\"#fff\"/>\n        <path d=\"M0 9H3V7H0V9Z\" fill=\"#fff\"/>\n        <path d=\"M16 7H13V9H16V7Z\" fill=\"#fff\"/>\n        <path d=\"M3.75735 5.17157L1.63603 3.05025L3.05025 1.63603L5.17157 3.75735L3.75735 5.17157Z\" fill=\"#fff\"/>\n        <path d=\"M12.2426 10.8284L14.364 12.9497L12.9497 14.364L10.8284 12.2426L12.2426 10.8284Z\" fill=\"#fff\"/>\n        <path d=\"M3.05025 14.364L5.17157 12.2426L3.75735 10.8284L1.63603 12.9498L3.05025 14.364Z\" fill=\"#fff\"/>\n        <path d=\"M12.9497 1.63604L10.8284 3.75736L12.2426 5.17158L14.364 3.05026L12.9497 1.63604Z\" fill=\"#fff\"/>\n    </g>"
   },
   {
     "title": "GPS Viewer",
@@ -24,53 +294,5 @@
     ],
     "gradientCSS": "linear-gradient(to bottom right, #1B5E20 0%, #0A3D0A 100%)",
     "iconSvg": "<path fill-rule=\"evenodd\" \n        d=\"M16 4 C11 4 7 8 7 13 C7 19 16 28 16 28 C16 28 25 19 25 13 C25 8 21 4 16 4 Z\n           M16 9 C18.2 9 20 10.8 20 13 C20 15.2 18.2 17 16 17 C13.8 17 12 15.2 12 13 C12 10.8 13.8 9 16 9 Z\" \n        fill=\"#fff\"/>"
-  },
-  {
-    "title": "Nearest Mount Point Finder",
-    "description": "Find the nearest NTRIP mount point in the ASG-EUPOS network",
-    "href": "https://danielmroczek.github.io/nearest-mountpoint/",
-    "repo": "https://github.com/danielmroczek/nearest-mountpoint",
-    "tags": [
-      "gps",
-      "ntrip"
-    ],
-    "gradientCSS": "linear-gradient(to bottom right, tomato 0%, crimson 100%)",
-    "iconSvg": "<path fill=\"#fff\"\n    d=\"M16.656 5.378 15.33 7.656c-3.767-1.13-7.136-.579-8.297 1.42-1.525 2.622 1.023 7.266 6.054 10.15 5.032 2.887 10.355 2.754 11.879.133 1.162-1.999-.042-5.172-2.91-7.847l1.324-2.278c3.99 3.484 5.775 8.06 3.827 11.41-2.407 4.142-9.303 4.313-15.415.81-6.109-3.505-9.41-9.523-7.002-13.663 1.948-3.35 6.834-4.102 11.864-2.413ZM21.026 3l2.242 1.285-6.471 11.132-2.242-1.285ZM9.182 26.429h13.29v2.57H6.963a1.292 1.283 0 0 1-1.314-1.184 1.288 1.279 0 0 1 .17-.743l2.912-5.01 2.242 1.286z\" />"
-  },
-  {
-    "title": "Reaction Time",
-    "description": "A web-based application to measure and track your reaction time. Test your reflexes and compare results with previous attempts.",
-    "href": "https://danielmroczek.github.io/reaction-time/",
-    "repo": "https://github.com/danielmroczek/reaction-time",
-    "tags": [
-      "game",
-      "test"
-    ],
-    "gradientCSS": "linear-gradient(to bottom right, #455a64 0%, #263238 100%)",
-    "iconSvg": "<g transform=\"translate(3 3) scale(1.0833333333333333 1.0833333333333333)\">\n  <path fill=\"none\" stroke=\"#fff\" stroke-width=\"1.8461538461538463\" stroke-linecap=\"round\" stroke-linejoin=\"round\"\n      d=\"M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z\"></path>\n</g>"
-  },
-  {
-    "title": "Blind Test",
-    "description": "A web application designed to facilitate unbiased product testing by implementing a double-blind methodology.",
-    "href": "https://danielmroczek.github.io/blind-test/",
-    "repo": "https://github.com/danielmroczek/blind-test",
-    "tags": [
-      "test",
-      "methodology",
-      "tool"
-    ],
-    "gradientCSS": "linear-gradient(to bottom right, #2E7D32 0%, #1B5E20 100%)",
-    "iconSvg": "<path\r\n    d=\"M16 4a4.495 4.495 0 0 0-4.242 3H10c-1.655 0-3 1.345-3 3v15c0 1.655 1.345 3 3 3h12c1.655 0 3-1.345 3-3V10c0-1.655-1.345-3-3-3h-1.758A4.495 4.495 0 0 0 16 4m0 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3m-4.04 7.748A2.63 2.63 0 0 1 14.433 13h2.733a2.96 2.96 0 0 1 2.958 2.958c0 1.06-.567 2.039-1.486 2.569l-1.514.867c-.01.61-.51 1.106-1.125 1.106a1.12 1.12 0 0 1-1.125-1.125v-.633c0-.403.216-.773.567-.975l2.077-1.19a.709.709 0 0 0-.352-1.322h-2.733c-.159 0-.3.098-.351.248l-.019.056c-.206.586-.853.891-1.434.685a1.13 1.13 0 0 1-.685-1.435l.02-.056zM14.5 23.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0\"\r\n    style=\"fill:#fff;stroke-width:.857143\" />"
-  },
-  {
-    "title": "Color Matcher",
-    "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
-    "href": "https://danielmroczek.github.io/color-matcher/",
-    "repo": "https://github.com/danielmroczek/color-matcher",
-    "tags": [
-      "color",
-      "tool"
-    ],
-    "gradientCSS": "linear-gradient(to bottom right, #F44336 5%, #FF9800 20%, #FFEB3B 35%, #4CAF50 50%, #2196F3 65%, #3F51B5 80%, #9C27B0 95%)"
   }
 ]
