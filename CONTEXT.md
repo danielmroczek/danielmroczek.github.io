@@ -46,3 +46,16 @@ _Avoid_: Bare project, no-demo project
 The `gradientCSS` and `iconSvg` pair extracted from a project's SVG favicon and baked into
 `projects.json`.
 _Avoid_: Icon data, thumbnail
+
+**Canonical favicon**:
+A project favicon written against the contract in `docs/favicon-format.md` — 32×32, optional
+gradient + background rect, and every icon shape carrying an explicit white `fill` or
+`stroke="#fff"`, with no `<style>`/classes/`var()`/`url(#...)` and (ideally) no nested `<svg>`.
+_Avoid_: Raw favicon, uncurated favicon
+
+**Favicon contract**:
+The documented rules that a canonical favicon must satisfy (see `docs/favicon-format.md`). The
+extractor renders exactly what the contract describes; anything outside it is treated as a
+favicon bug, not a script bug.
+_Avoid_: Favicon spec, guidelines
+

@@ -33,6 +33,9 @@
       "title": "Color Matcher",
       "description": "A tool that helps you find the closest matching named colors from CSS and Material Design palettes for any color input. Supports various color formats including hex, RGB, and color names.",
       "tags": ["color", "tool"]
+    },
+    "30-ton": {
+      "iconSvg": "<path d=\"M6.084 4v6.277h2.732V6.354h2.977L8.816 17.178h2.977v8.468H8.816v-3.734H6.084v2.543q0 3.355 4.328 3.545 4.33-.217 4.33-3.545v-7.277q0-1.137-.974-1.733-.732-.46-1.407-.433l2.381-8.658V4zm15.504 0q-1.596 0-2.68.676-1.433.92-1.433 2.869v16.91q0 3.33 4.113 3.545 4.328-.19 4.328-3.545V7.545q0-1.95-1.488-2.87Q23.318 4 21.588 4m-1.381 2.354h2.977v19.292h-2.977z\" fill=\"#fff\"/>"
     }
   }
 }

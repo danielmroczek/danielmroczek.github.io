@@ -142,61 +142,61 @@ function extractFaviconData(svgText) {
   const gradientMatch = svgText.match(
     /<linearGradient\s+([^>]*)>([\s\S]*?)<\/linearGradient>/
   );
-  if (!gradientMatch) {
-    return { gradientCSS: null, iconSvg: null };
-  }
 
-  const gradAttrs = gradientMatch[1];
-  const gradBody = gradientMatch[2];
+  let gradientCSS = null;
+  if (gradientMatch) {
+    const gradAttrs = gradientMatch[1];
+    const gradBody = gradientMatch[2];
 
-  // Parse gradient attributes
-  const getAttr = (name) => {
-    const m = gradAttrs.match(new RegExp(`${name}="([^"]*)"`));
-    return m ? m[1] : undefined;
-  };
+    // Parse gradient attributes
+    const getAttr = (name) => {
+      const m = gradAttrs.match(new RegExp(`${name}="([^"]*)"`));
+      return m ? m[1] : undefined;
+    };
 
-  const x1 = getAttr("x1") || "0%";
-  const y1 = getAttr("y1") || "0%";
-  const x2 = getAttr("x2") || "100%";
-  const y2 = getAttr("y2") || "100%";
+    const x1 = getAttr("x1") || "0%";
+    const y1 = getAttr("y1") || "0%";
+    const x2 = getAttr("x2") || "100%";
+    const y2 = getAttr("y2") || "100%";
 
-  // Parse stops
-  const stops = [];
-  const stopRegex = /<stop\s+([^/]+?)\/?>/g;
-  let stopMatch;
-  while ((stopMatch = stopRegex.exec(gradBody)) !== null) {
-    const stopAttrs = stopMatch[1];
-    const offsetMatch = stopAttrs.match(/offset="([^"]*)"/);
-    const colorMatch =
-      stopAttrs.match(/stop-color="([^"]*)"/) ||
-      stopAttrs.match(/style="stop-color:([^";]+)/);
+    // Parse stops
+    const stops = [];
+    const stopRegex = /<stop\s+([^/]+?)\/?>/g;
+    let stopMatch;
+    while ((stopMatch = stopRegex.exec(gradBody)) !== null) {
+      const stopAttrs = stopMatch[1];
+      const offsetMatch = stopAttrs.match(/offset="([^"]*)"/);
+      const colorMatch =
+        stopAttrs.match(/stop-color="([^"]*)"/) ||
+        stopAttrs.match(/style="stop-color:([^";]+)/);
 
-    if (colorMatch) {
-      let offset = offsetMatch ? offsetMatch[1] : (stops.length === 0 ? "0%" : "100%");
-      let color = colorMatch[1].trim();
+      if (colorMatch) {
+        let offset = offsetMatch ? offsetMatch[1] : (stops.length === 0 ? "0%" : "100%");
+        let color = colorMatch[1].trim();
 
-      // Resolve CSS variables
-      color = resolveCssValue(color, vars);
+        // Resolve CSS variables
+        color = resolveCssValue(color, vars);
 
-      // Normalize offset to percentage
-      if (!offset.includes("%")) {
-        const num = parseFloat(offset);
-        offset = Number.isNaN(num) ? (stops.length === 0 ? "0%" : "100%") : `${Math.round(num * 100)}%`;
+        // Normalize offset to percentage
+        if (!offset.includes("%")) {
+          const num = parseFloat(offset);
+          offset = Number.isNaN(num) ? (stops.length === 0 ? "0%" : "100%") : `${Math.round(num * 100)}%`;
+        }
+
+        stops.push({ offset, color });
       }
+    }
 
-      stops.push({ offset, color });
+    // Build CSS gradient
+    if (stops.length > 0) {
+      const direction = gradientDirectionToCSS(x1, y1, x2, y2);
+      const colorStops = stops.map((s) => `${s.color} ${s.offset}`).join(", ");
+      gradientCSS = `linear-gradient(${direction}, ${colorStops})`;
     }
   }
 
-  // Build CSS gradient
-  let gradientCSS = null;
-  if (stops.length > 0) {
-    const direction = gradientDirectionToCSS(x1, y1, x2, y2);
-    const colorStops = stops.map((s) => `${s.color} ${s.offset}`).join(", ");
-    gradientCSS = `linear-gradient(${direction}, ${colorStops})`;
-  }
-
-  // Extract icon SVG (everything except background rect and defs/style)
+  // Extract icon SVG (everything except background rect and defs/style),
+  // independent of whether a gradient was found.
   let iconSvg = extractIconSvg(svgText, vars);
 
   return { gradientCSS, iconSvg };

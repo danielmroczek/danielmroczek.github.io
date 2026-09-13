@@ -180,6 +180,21 @@ export async function generate({ config, skipFaviconDownload = false } = {}) {
   console.log("\nExtracting favicon data...");
   await extractFaviconDataFromFiles(projects);
 
+  // Curated icon/gradient overrides win over anything extracted from the favicon.
+  // Keyed by repository name (derived from the project's repo URL).
+  for (const p of projects) {
+    const repoName = String(p.repo ?? "").replace(/\/+$/, "").split("/").pop();
+    const ov = overrides[repoName] ?? {};
+    if (typeof ov.iconSvg === "string") {
+      p.iconSvg = ov.iconSvg;
+      console.log(`  OVERRIDE ICON ${repoName}`);
+    }
+    if (typeof ov.gradientCSS === "string") {
+      p.gradientCSS = ov.gradientCSS;
+      console.log(`  OVERRIDE GRADIENT ${repoName}`);
+    }
+  }
+
   // Strip config-only fields from the output.
   for (const p of projects) {
     delete p.favicon;

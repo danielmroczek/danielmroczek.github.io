@@ -74,7 +74,9 @@ works against the public API without it. `.env` is gitignored.
       "description": "...",            // optional curated description
       "tags": ["music", "audio"],      // optional curated tags (merged with GitHub topics)
       "href": "https://...",           // optional explicit demo URL
-      "favicon": "https://.../x.svg"   // optional explicit favicon URL
+      "favicon": "https://.../x.svg",  // optional explicit favicon URL
+      "iconSvg": "<path .../>",        // optional override icon (wins over extracted one)
+      "gradientCSS": "linear-gradient(...)" // optional override gradient
     }
   }
 }
@@ -94,6 +96,23 @@ It reads `projects.json`, downloads SVG favicons, and extracts gradient + icon d
 
 Without flags, it does both (download then extract). Prefer `scripts/generate.mjs` for normal
 use — it regenerates the whole file including favicons.
+
+## Favicon format & checker
+
+Card thumbnails (gradient + white icon) are extracted from each project's SVG favicon. To keep
+extraction simple and predictable, favicons should follow the **canonical favicon format**
+described in [`docs/favicon-format.md`](docs/favicon-format.md). If a favicon renders wrong,
+the fix belongs in the favicon (in its own repo) — not in the script.
+
+Before changing a favicon, check it against the format:
+
+```
+node scripts/check-favicon.mjs path/to/favicon.svg
+```
+
+It lists hard violations to fix and softer recommendations. `tests/check.mjs` also warns about
+favicons that break rendering, so you'll be reminded when a project's favicon drifts from the
+format.
 
 ## Setup
 

@@ -23,7 +23,6 @@ import assert from "node:assert/strict";
 
 const projects = JSON.parse(readFileSync(new URL("../projects.json", import.meta.url), "utf8"));
 const config = JSON.parse(readFileSync(new URL("../config.json", import.meta.url), "utf8"));
-
 // --- 1. Schema sanity ---------------------------------------------------------
 assert.ok(Array.isArray(projects), "projects.json must be an array");
 for (const p of projects) {
@@ -127,3 +126,61 @@ for (const tag of everyTag) {
 }
 
 console.log("ALL CHECKS PASSED");
+
+// --- 5. Favicon contract guard (WARN only) ----------------------------------
+// Advises when a project's favicon SVG (in tmp/, keyed by slug) violates the
+// canonical format in docs/favicon-format.md. Warn-level on purpose: broken
+// favicons shouldn't block regeneration until they're rewritten in their repos.
+// The slug logic here mirrors scripts/lib/favicon.mjs so the checker can find
+// the downloaded SVG for each project.
+const pathModule = await import("node:path");
+const { readdirSync, existsSync } = await import("node:fs");
+const { fileURLToPath } = await import("node:url");
+const path = pathModule.default;
+
+// tmp/ lives at the repo root, next to the tests/ directory.
+const tmpDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "tmp");
+
+const slugify = (value) =>
+  String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "") || "favicon";
+
+const haveSvg = existsSync(tmpDir) ? new Set(readdirSync(tmpDir).map((f) => f.replace(/\.svg$/i, ""))) : new Set();
+
+// Reuse the checker's violation logic (kept inline to avoid a cross-script import).
+// NOTE: the test guard only warns on violations that reliably break *rendering*.
+// Favicons that render correctly may still use <style>/classes/var() for the
+// gradient (the extractor resolves those) — see docs/favicon-format.md, which is
+// why the guard below is deliberately narrower than scripts/check-favicon.mjs.
+const checkSvg = (contents) => {
+  const issues = [];
+  const isNotFullScreenRect = (tag) => !/^<rect/.test(tag) || !/\bwidth="32"|\bheight="32"/.test(tag);
+  const urlRefs = (contents.match(/<(path|circle|rect|ellipse|line|polygon|polyline|g)[^>]*(?:fill|stroke)\s*=\s*"url\([^)]+\)"[^>]*>/gi) || []).filter(isNotFullScreenRect);
+  if (urlRefs.length) issues.push("url(#...) on icon shape");
+  const fillNoneNoStroke = (contents.match(/<(path|circle|rect|ellipse|line|polygon|polyline)[^>]*\bfill="none"[^>]*>/gi) || []).filter((t) => !/\bstroke="/i.test(t));
+  if (fillNoneNoStroke.length) issues.push("fill=\"none\" with no stroke");
+  if (/currentColor/i.test(contents)) issues.push("currentColor");
+  if (/<g\b[^>]*(?:style="[^"]*fill:none|fill="none")[^>]*>[\s\S]{0,400}(?:<path|<circle|<rect|<ellipse|<line)/i.test(contents)) {
+    issues.push("wrapper fill:none without explicit stroke on shapes");
+  }
+  return issues;
+};
+
+let faviconWarnings = 0;
+for (const p of projects) {
+  const svgPath = path.join(tmpDir, `${slugify(p.title)}.svg`);
+  if (haveSvg.has(slugify(p.title))) {
+    const contents = readFileSync(svgPath, "utf8");
+    const issues = checkSvg(contents);
+    if (issues.length > 0) {
+      faviconWarnings += 1;
+      console.warn(`WARN: ${p.title} favicon violates contract (${issues.join(", ")}). See docs/favicon-format.md`);
+    }
+  }
+}
+if (faviconWarnings > 0) {
+  console.warn(`WARN: ${faviconWarnings} favicon(s) need alignment with the canonical format.`);
+}
