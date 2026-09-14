@@ -44,7 +44,35 @@ An SVG, 32×32, with this structure:
      `stroke-linecap`, `stroke-linejoin` the shape needs) for outlined shapes.
 4. **No `<style>` blocks, no CSS classes, no `var(...)`, no `url(#...)`** on icon shapes.
    These reference things the extractor removes, so they either break or get blanked to white.
-5. **No nested `<svg>`** — flatten the icon into plain `<path>`/`<circle>`/`<rect>`/etc. (This is
+5. **No `style="..."` attributes.** CSS declarations must be written as presentation
+   attributes directly on the element (`fill`, `stroke`, `stroke-width`, `stroke-linecap`,
+   `stroke-linejoin`, `opacity`, ...). The extractor does not inline CSS, so anything that
+   lives only in a `style` attribute is ignored.
+
+   ```xml
+   <!-- BAD -->
+   <g style="fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round">
+     <path d="M8 24 16 8l8 16"/>
+   </g>
+
+   <!-- GOOD -->
+   <g fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round">
+     <path d="M8 24 16 8l8 16"/>
+   </g>
+   ```
+6. **No `transform` attributes.** Draw the icon as plain shapes whose coordinates already fit
+   the 32×32 canvas — bake any translation or scale directly into the path data. The extractor
+   has to carry transforms around in a wrapping `<g>`, which adds another layer of indirection
+   and is a common source of rendering surprises.
+
+   ```xml
+   <!-- BAD -->
+   <g transform="translate(4,4) scale(1.5)"><path d="M7 3V0H9V3H7Z"/></g>
+
+   <!-- GOOD -->
+   <path fill="#fff" d="M14.5 8.5V4.5H17.5V8.5H14.5Z"/>
+   ```
+7. **No nested `<svg>`** — flatten the icon into plain `<path>`/`<circle>`/`<rect>`/etc. (This is
    a *recommendation*: the extractor still tolerates nesting, but it's the most common source of
    rendering surprises and should be avoided.)
 

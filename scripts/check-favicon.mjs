@@ -36,6 +36,28 @@ function checkSvg(contents) {
       fix: "Replace var() with literal color values (e.g. #fff).",
     });
   }
+  // No style="..." attributes at all: presentation must live in attributes on
+  // the shapes (fill, stroke, stroke-width, stroke-linecap, ...). The extractor
+  // does not inline CSS, so style-based values are lost or blanked to white.
+  const styleAttrs = contents.match(/\sstyle="[^"]*"/gi) || [];
+  if (styleAttrs.length > 0) {
+    issues.push({
+      severity: HARD,
+      what: `${styleAttrs.length} style="..." attribute(s) (CSS declarations instead of presentation attributes)`,
+      fix: 'Move every declaration into presentation attributes on the same element, e.g. style="fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round" becomes fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round".',
+    });
+  }
+  // No transform attributes: the icon must be plain shapes whose coordinates
+  // already fit the 32x32 canvas. Transforms add a layer of indirection the
+  // extractor has to keep around (a wrapping <g>), which is not the contract.
+  const transforms = contents.match(/\stransform="[^"]*"/gi) || [];
+  if (transforms.length > 0) {
+    issues.push({
+      severity: HARD,
+      what: `${transforms.length} transform="..." attribute(s)`,
+      fix: "Remove the transform and bake its translation/scale directly into the shape coordinates (draw the icon on the 32x32 canvas), e.g. path data shifted/scaled so no transform is needed.",
+    });
+  }
   // url(#...) on an ICON SHAPE (non-background) breaks icons. The full-screen
   // background <rect> legitimately references url(#gradient) — that's canonical,
   // so exclude full-size rects from this rule.
