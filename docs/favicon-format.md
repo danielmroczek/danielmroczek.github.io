@@ -75,6 +75,24 @@ An SVG, 32×32, with this structure:
 7. **No nested `<svg>`** — flatten the icon into plain `<path>`/`<circle>`/`<rect>`/etc. (This is
    a *recommendation*: the extractor still tolerates nesting, but it's the most common source of
    rendering surprises and should be avoided.)
+8. **One thumbnail element marked `id="icon"`.** Ideally the icon is a single plain `<path>`
+   (all coordinates baked in — no transform, no style, no external references); it should carry
+   `id="icon"`. If the favicon includes extra artwork (brand marks, alternates), every unmarked
+   shape is ignored by the extractor — **only the element with `id="icon"` becomes the portfolio
+   thumbnail**. The marker must appear on exactly one element.
+
+   ```xml
+   <!-- GOOD: single canonical path -->
+   <path id="icon" fill="#fff" d="M8 8h16v16H8z"/>
+
+   <!-- GOOD: icon + extra unmarked artwork that the extractor ignores -->
+   <path id="icon" fill="#fff" d="M6 14 12 6l6 8z"/>
+   <path fill="#fff" opacity="0.25" d="M22 22h6v6h-6z"/>
+   ```
+
+   Without a marker the extractor falls back to its legacy heuristic (everything except the
+   background rect and defs) so existing favicons keep working — but a marked `id="icon"`
+   is the only way to be explicit about what shows up on the card.
 
 ## Allowed variations
 
@@ -95,8 +113,10 @@ Given a favicon it:
 
 1. Reads the optional `<linearGradient>` and turns it into `gradientCSS`.
 2. Removes `<defs>`, `<style>`, the background `<rect>`, and the outer `<svg>` wrapper.
-3. Normalizes each remaining shape's fill/stroke to white.
-4. Emits the remainder as `iconSvg`.
+3. **If an element with `id="icon"` exists, uses that element alone** (dropping the `id`,
+   since `iconSvg` isn't used as a fragment in HTML). Otherwise keeps the remainder as-is.
+4. Normalizes the remaining shape(s)' fill/stroke to white.
+5. Emits the result as `iconSvg`.
 
 If the favicon has **no gradient**, the icon is still extracted (the card just gets a grey
 thumbnail). If extraction yields something it can't render safely (e.g. a shape whose fill

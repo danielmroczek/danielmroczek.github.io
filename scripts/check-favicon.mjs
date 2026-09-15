@@ -133,6 +133,24 @@ function checkSvg(contents) {
     });
   }
 
+  // --- Canonical marker: id="icon" on the thumbnail shape ---
+  // A favicon may contain extra shapes (brand art, alternates); the element
+  // marked id="icon" is THE one the portfolio uses as the card thumbnail.
+  const iconMarkers = (contents.match(/\bid="icon"/gi) || []).length;
+  if (iconMarkers === 0) {
+    issues.push({
+      severity: SOFT,
+      what: 'no id="icon" marker',
+      fix: 'Add id="icon" to the single <path> (or <g>) that should become the portfolio thumbnail. Prefer one plain path with all coordinates baked in (no transform, no style).',
+    });
+  } else if (iconMarkers > 1) {
+    issues.push({
+      severity: HARD,
+      what: `${iconMarkers} elements have id="icon" (must be exactly one)`,
+      fix: 'Keep the marker on exactly one element — the one the portfolio should show as the thumbnail. Remove id="icon" from the rest.',
+    });
+  }
+
   return issues;
 }
 

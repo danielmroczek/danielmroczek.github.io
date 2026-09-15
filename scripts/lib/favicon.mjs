@@ -227,6 +227,18 @@ function extractIconSvg(svgText, vars) {
   // Remove any leftover closing </rect> tags
   content = content.replace(/<\/rect>/g, "");
 
+  // Canonical favicons mark exactly one element with id="icon" (usually the
+  // single icon path). When the marker is present, that element alone is the
+  // icon source and everything else in the file is ignored.
+  const markedShape = content.match(
+    /<(path|circle|rect|ellipse|line|polygon|polyline)\b[^>]*\bid="icon"[^>]*>/i
+  );
+  const markedGroup = content.match(/<g\b[^>]*\bid="icon"[^>]*>[\s\S]*?<\/g>/i);
+  const marked = markedShape || markedGroup;
+  if (marked) {
+    content = marked[0].replace(/(\s+)id="icon"/i, "$1");
+  }
+
   // Before removing <svg> tags, capture inherited fill/stroke attributes
   // and geometric transforms from them. Nested <svg> elements (e.g.
   // reaction-time-test) may carry fill="none", stroke, stroke-width, and

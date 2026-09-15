@@ -112,7 +112,7 @@ node scripts/check-favicon.mjs path/to/favicon.svg
 
 It lists hard violations to fix (including `style="..."` attributes — CSS declarations must be
 written as presentation attributes like `fill`, `stroke`, `stroke-width` directly on the shapes)
-and softer recommendations. `tests/check.mjs` also warns about
+and softer recommendations (e.g. a missing `id="icon"` marker — see the format spec). `tests/check.mjs` also warns about
 favicons that break rendering, so you'll be reminded when a project's favicon drifts from the
 format.
 
