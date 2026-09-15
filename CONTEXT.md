@@ -59,3 +59,9 @@ extractor renders exactly what the contract describes; anything outside it is tr
 favicon bug, not a script bug.
 _Avoid_: Favicon spec, guidelines
 
+**Icon Path**:
+The single `<path id="icon">` element in a canonical favicon that becomes the card thumbnail.
+Multi-shape icons are flattened into it as one element carrying all subpaths, with transforms
+baked into its coordinates.
+_Avoid_: Icon element, icon group, merged path
+

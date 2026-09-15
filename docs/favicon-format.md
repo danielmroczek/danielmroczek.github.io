@@ -124,6 +124,10 @@ references a removed `<defs>`), the icon is dropped and the card shows the lette
 
 ## Checking a favicon
 
+Favicon Creator (https://github.com/danielmroczek/favicon-creator) is the canonical authoring
+tool: its downloads already satisfy this contract, including the single marked
+`id="icon"` path with transforms baked into coordinates.
+
 Use the checker to see whether a favicon meets the contract and what to fix:
 
 ```
