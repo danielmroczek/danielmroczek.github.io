@@ -65,3 +65,11 @@ Multi-shape icons are flattened into it as one element carrying all subpaths, wi
 baked into its coordinates.
 _Avoid_: Icon element, icon group, merged path
 
+**Placeholder Gradient**:
+A gradient the generator bakes into `projects.json` for a project whose favicon has none,
+replacing the old grey fallback. Drawn by the Favicon Creator palette lib (loaded from
+raw.githubusercontent.com, single canonical URL — ADR `0005`), seeded by the project's repo
+URL and clamped to shades 400–900 so white card content stays legible.
+Marked with a `placeholderGradient` flag, which also gates the first-letter fallback in the UI.
+_Avoid_: Fallback gradient, default gradient, random background
+

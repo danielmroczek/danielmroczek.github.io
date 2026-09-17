@@ -33,6 +33,12 @@ for (const p of projects) {
 
 // --- 2. Gradient & icon data --------------------------------------------------
 for (const p of projects) {
+  // The generator now derives a placeholder gradient for any project whose
+  // favicon has none, so every generated project.json entry has one.
+  assert.ok(
+    typeof p.gradientCSS === "string" && p.gradientCSS.length > 0,
+    `${p.title} should have a gradientCSS (extracted or placeholder)`
+  );
   if (p.gradientCSS) {
     assert.ok(
       p.gradientCSS.startsWith("linear-gradient("),

@@ -47,7 +47,10 @@
                     <svg class="thumb__icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                          x-html="project.iconSvg"></svg>
                   </template>
-                  <template x-if="!project.iconSvg && !project.gradientCSS">
+                  <!-- Letter fallback: derived placeholder gradient and
+                       no icon. A gradient extracted from a real favicon
+                       renders alone (e.g. Color Matcher). -->
+                  <template x-if="project.placeholderGradient && !project.iconSvg">
                     <span class="thumb__letter" x-text="project.title?.[0] || '?'"></span>
                   </template>
                 </div>
@@ -61,7 +64,7 @@
                   <svg class="thumb__icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
                        x-html="project.iconSvg"></svg>
                 </template>
-                <template x-if="!project.iconSvg && !project.gradientCSS">
+                <template x-if="project.placeholderGradient && !project.iconSvg">
                   <span class="thumb__letter" x-text="project.title?.[0] || '?'"></span>
                 </template>
               </div>

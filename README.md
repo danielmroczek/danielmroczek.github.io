@@ -21,8 +21,15 @@ description, href, repo, tags, gradientCSS, iconSvg). `projects.json` is **gener
 hand-edited — see [Regenerating projects.json](#regenerating-projectsjson) below. Each project
 card displays a gradient thumbnail extracted from the project's SVG favicon — the gradient
 background and icon are baked into `projects.json` at build time by the generator.
-Projects without a favicon or deployed demo fall back to a grey gradient with the first letter
-of the title. Cards without a deployed demo show only the Repo link (no Demo).
+Projects whose favicon carries no gradient get a **placeholder gradient** instead: a colorful
+Material palette pair drawn by the
+[Favicon Creator palette lib](https://github.com/danielmroczek/favicon-creator/blob/main/docs/lib/palette-lib.js),
+seeded from the repo URL (deterministic across regenerations) and clamped to shades 400–900 so
+the white letter/icon always contrasts (see
+[ADR 0005](docs/adr/0005-placeholder-gradients-shared-palette-lib.md)). Cards without a deployed
+demo show only the Repo link (no Demo). Derived gradients carry a `placeholderGradient` flag;
+the first-letter fallback shows only on such tiles — a gradient extracted from a real favicon
+renders alone even when no icon was extracted.
 The Alpine version is pinned via an
 [import map](/index.html) in the HTML, and all application JS lives in [`script.js`](script.js), which
 imports Alpine, fetches `projects.json`, and exposes a reactive project list with tag filtering.
@@ -48,7 +55,13 @@ The generator:
    repos without Pages become repository-only cards (no demo link).
 4. Builds each project's tags from the repo's GitHub topics plus any curated `overrides`.
 5. Downloads each project's `favicon.svg` and extracts the gradient + icon into `projects.json`.
-6. Defaults to sorting by `pushed_at` (most recent first).
+6. Applies a placeholder gradient (shared palette lib, seeded by repo, shades 400–900) to
+  projects whose favicon had none.
+7. Defaults to sorting by `pushed_at` (most recent first).
+
+The shared palette lib and the Material Colors data are loaded "like a CDN asset" from
+`raw.githubusercontent.com` (the `favicon-creator` repo, `main` branch) — see
+`scripts/lib/palette-loader.mjs`.
 
 Run with `--no-favicons` to skip the favicon download step and instead reuse whatever SVG
 favicons already exist in `tmp/` (useful for a quick local experiment without re-hitting GitHub):

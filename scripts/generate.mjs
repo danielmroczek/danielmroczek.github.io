@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { rootDir, downloadFavicons, extractFaviconDataFromFiles } from "./lib/favicon.mjs";
 import { loadEnvFile } from "./lib/loadEnv.mjs";
+import { importWindowGlobalFromUrl } from "./lib/remote-iife.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,6 +12,15 @@ const projectsPath = path.join(rootDir, "projects.json");
 
 const API = "https://api.github.com";
 const { GITHUB_TOKEN } = loadEnvFile(path.join(rootDir, ".env"));
+
+// Shared palette lib + data, served by the favicon-creator repo
+// (raw.githubusercontent.com like a CDN). The files are IIFEs that assign
+// onto a global `window` — importWindowGlobalFromUrl fetches and evaluates
+// them, then returns the requested export.
+const PALETTE_LIB_URL =
+  "https://raw.githubusercontent.com/danielmroczek/favicon-creator/main/docs/lib/palette-lib.js";
+const MATERIAL_COLORS_URL =
+  "https://raw.githubusercontent.com/danielmroczek/favicon-creator/main/docs/lib/material-colors.js";
 
 async function githubRequest(url, { acceptTopics = false } = {}) {
   const headers = {
@@ -111,6 +121,12 @@ export async function generate({ config, skipFaviconDownload = false } = {}) {
   const include = config.include ?? {};
   const sort = config.sort ?? "pushed";
 
+  // Shared palette lib (favicon-creator) draws placeholder gradients for
+  // projects whose favicon has none. Must be loaded even when the favicon
+  // download is skipped — placeholders apply after extraction either way.
+  const paletteLib = await importWindowGlobalFromUrl(PALETTE_LIB_URL, "faviconPaletteLib");
+  const materialPalette = await importWindowGlobalFromUrl(MATERIAL_COLORS_URL, "materialColors");
+
   // The portfolio's own hosted repo and the special profile repo (named after
   // the owner) are always excluded unless explicitly included.
   const defaultExcludes = new Set([`${owner}.github.io`, owner]);
@@ -179,6 +195,24 @@ export async function generate({ config, skipFaviconDownload = false } = {}) {
   }
   console.log("\nExtracting favicon data...");
   await extractFaviconDataFromFiles(projects);
+
+  // Placeholder gradients (CONTEXT.md "Placeholder Gradient"): any project
+  // left without a gradient after extraction gets a color pair drawn by the
+  // shared palette lib instead of the old grey fallback. The pair is seeded
+  // from the repo URL (deterministic across runs) and clamped to shades
+  // 400–900 so the white letter/icon always contrasts against the light
+  // ends of the Material scale. Curated overrides below still win.
+  console.log("\nApplying placeholder gradients...");
+  for (const p of projects) {
+    if (p.gradientCSS) continue;
+    const seed = String(p.repo ?? p.title ?? "");
+    const pair = paletteLib.randomPair(materialPalette, { seed, shadeRange: [400, 900] });
+    p.gradientCSS = `linear-gradient(to bottom right, ${pair.startHex} 0%, ${pair.endHex} 100%)`;
+    // Marks a derived (not favicon-extracted) gradient so the UI shows the
+    // letter fallback on this tile; real favicon gradients render alone.
+    p.placeholderGradient = true;
+    console.log(`  PLACEHOLDER ${p.title}: ${pair.startKey} → ${pair.endKey}`);
+  }
 
   // Curated icon/gradient overrides win over anything extracted from the favicon.
   // Keyed by repository name (derived from the project's repo URL).
